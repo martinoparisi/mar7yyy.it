@@ -1,0 +1,14 @@
+{
+  "name": "Martino Parisi — Sviluppatore full stack",
+  "short_name": "mar7yyy",
+  "description": "Sviluppatore full stack a Rovereto. RaBar, MART e altri progetti.",
+  "lang": "it-IT",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#05050b",
+  "theme_color": "#05050b",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

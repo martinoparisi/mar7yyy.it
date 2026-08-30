@@ -1,0 +1,239 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens. Nessun colore hardcoded nei componenti: tutto da qui.
+   Palette: nero bluastro, accento viola -> ciano.
+------------------------------------------------------------------- */
+@theme {
+  --color-void: #05050b;
+  --color-abyss: #0a0a14;
+  --color-surface: #10101c;
+  --color-line: #ffffff14;
+  --color-line-strong: #ffffff2e;
+
+  --color-ink: #f2f2f7;
+  --color-ink-dim: #a3a3b8;
+  --color-ink-faint: #66667e;
+
+  --color-viola: #8b5cf6;
+  --color-viola-deep: #5b21b6;
+  --color-ciano: #22d3ee;
+  --color-ciano-deep: #0e7490;
+
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+:root {
+  color-scheme: dark;
+  --grad-accent: linear-gradient(
+    100deg,
+    var(--color-viola) 0%,
+    #a78bfa 35%,
+    var(--color-ciano) 100%
+  );
+}
+
+* {
+  min-width: 0;
+}
+
+html {
+  /* lo smooth scroll lo fa Lenis: qui va tolto o litigano */
+  scroll-behavior: auto;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--color-viola) 45%, transparent);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a3d;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3d3d57;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ciano);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------------------------- utility ---------------------------- */
+
+@utility text-gradient {
+  background: var(--grad-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Il display font a peso alto e tracking stretto: la firma tipografica. */
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+/* Vetro: usato da nav, card e pannelli. Un solo posto, coerenza garantita. */
+@utility glass {
+  background: color-mix(in oklab, var(--color-surface) 55%, transparent);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid var(--color-line);
+}
+
+/* Bordo sfumato: pseudo-elemento con mask, non si puo' fare col solo border. */
+@utility edge-glow {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      140deg,
+      color-mix(in oklab, var(--color-viola) 70%, transparent),
+      transparent 40%,
+      transparent 60%,
+      color-mix(in oklab, var(--color-ciano) 55%, transparent)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-out-expo);
+  }
+}
+
+/* Il contesto 3D. Le card figlie usano translateZ/rotate3d reali. */
+@utility scene-3d {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+
+@utility grain {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* --------------------- animazioni di ingresso --------------------- */
+/* Gli elementi con [data-reveal] partono nascosti e li accende
+   l'IntersectionObserver in useReveal aggiungendo .is-in. */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 1.1s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+[data-reveal="char"] {
+  display: inline-block;
+  opacity: 0;
+  transform: translate3d(0, 0.7em, 0) rotateX(-55deg);
+  transition:
+    opacity 0.7s var(--ease-out-expo),
+    transform 0.9s var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal="char"].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes sweep {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(220%);
+  }
+}
+
+@keyframes pulse-line {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  [data-reveal],
+  [data-reveal="char"] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mar7yyy.it/sitemap.xml
