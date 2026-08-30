@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <title>Brand identity — Martino Parisi</title>
+    <meta
+      name="description"
+      content="Il sistema visivo di mar7yyy: marchio, palette, gerarchia tipografica e componenti di base."
+    />
+    <meta name="author" content="Martino Parisi" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#fdf8fb" />
+    <meta name="color-scheme" content="light" />
+    <link rel="canonical" href="https://mar7yyy.it/identity" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+
+    <meta property="og:site_name" content="Martino Parisi" />
+    <meta property="og:title" content="Brand identity — Martino Parisi" />
+    <meta
+      property="og:description"
+      content="Marchio, palette, tipografia e componenti del sistema visivo di mar7yyy."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:url" content="https://mar7yyy.it/identity" />
+    <meta property="og:image" content="https://mar7yyy.it/img/og-image.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/identity.css" />
+  </head>
+
+  <body class="relative min-h-screen overflow-x-hidden font-body-md text-body-md text-on-background">
+    <!-- filigrana di simboli, dietro a tutto -->
+    <div class="syntax-bg pointer-events-none fixed inset-0 -z-10"></div>
+
+    <!-- Barra mobile / tablet -->
+    <header
+      class="sticky top-0 z-40 flex items-center justify-between border-b border-primary bg-surface px-gutter py-4 lg:hidden"
+    >
+      <span class="font-display-lg-mobile text-display-lg-mobile text-primary" style="font-size: 24px">
+        { mar7yyy }
+      </span>
+      <a
+        class="rounded-full border border-primary px-4 py-2 font-code-sm text-code-sm text-primary transition-colors hover:bg-primary hover:text-surface"
+        href="/"
+      >
+        ← al sito
+      </a>
+    </header>
+
+    <!-- Colonna di navigazione, da lg in su -->
+    <nav
+      class="fixed inset-y-0 left-0 z-50 hidden h-full w-80 overflow-y-auto border-r border-primary bg-surface lg:block"
+    >
+      <div class="p-6">
+        <a class="mb-8 flex items-center gap-3" href="/">
+          <img
+            alt="Martino Parisi"
+            class="h-12 w-12 rounded-full border border-primary object-cover"
+            src="/img/ritratto.webp"
+            width="48"
+            height="48"
+          />
+          <span>
+            <span class="block font-display-lg text-primary" style="font-size: 24px; line-height: 1">
+              { mar7yyy }
+            </span>
+            <span class="block font-code-sm text-code-sm text-on-surface-variant">
+              Sviluppatore full stack
+            </span>
+            <span class="block font-code-sm text-[10px] text-outline">Rovereto, TN</span>
+          </span>
+        </a>
+
+        <div class="space-y-2 font-body-md text-body-md">
+          <span
+            class="flex items-center rounded-full bg-primary-container px-4 py-3 font-bold text-on-primary-container"
+            aria-current="page"
+          >
+            Brand identity
+          </span>
+          <a
+            class="flex items-center rounded-full px-4 py-3 text-on-surface-variant transition-colors hover:bg-surface-container-high"
+            href="/#home"
+          >
+            Inizio
+          </a>
+          <a
+            class="flex items-center rounded-full px-4 py-3 text-on-surface-variant transition-colors hover:bg-surface-container-high"
+            href="/#progetti"
+          >
+            Progetti
+          </a>
+          <a
+            class="flex items-center rounded-full px-4 py-3 text-on-surface-variant transition-colors hover:bg-surface-container-high"
+            href="/#altro"
+          >
+            Altro
+          </a>
+          <a
+            class="flex items-center rounded-full px-4 py-3 text-on-surface-variant transition-colors hover:bg-surface-container-high"
+            href="/#contatti"
+          >
+            Contatti
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <main
+      class="relative z-10 mx-auto max-w-[1200px] px-gutter pb-24 pt-8 md:px-margin-desktop lg:ml-80"
+    >
+      <!-- Testata -->
+      <section class="mb-16">
+        <h1 class="mb-4 hidden font-display-lg text-display-lg text-primary md:block">
+          Brand Identity
+        </h1>
+        <h1 class="mb-4 font-display-lg-mobile text-display-lg-mobile text-primary md:hidden">
+          Brand Identity
+        </h1>
+        <p class="mb-8 font-code-sm text-code-sm text-outline">// System.StyleGuide.Initialize()</p>
+        <div class="mb-12 hidden select-none text-outline-variant md:block" aria-hidden="true">
+          [ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ]
+        </div>
+      </section>
+
+      <!-- Griglia bento -->
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-12">
+        <!-- Marchio -->
+        <section
+          class="group relative col-span-1 overflow-hidden rounded-3xl border border-primary bg-surface p-6 md:col-span-5"
+        >
+          <div
+            class="pointer-events-none absolute inset-0 z-10 m-px rounded-3xl border border-brand-rose opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          ></div>
+          <h2 class="mb-6 font-code-sm text-code-sm text-primary">{ Logo }</h2>
+          <div class="code-well mb-6 flex aspect-square items-center justify-center rounded-3xl p-8">
+            <span class="text-center font-display-lg text-primary" style="font-size: clamp(28px, 6vw, 44px); line-height: 1.1">
+              <span class="text-brand-terra">{</span>
+              mar7yyy
+              <span class="text-brand-terra">}</span>
+            </span>
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Il marchio è la parola dentro le graffe: il nome trattato come un blocco di
+            codice. Le graffe sono terracotta, il testo slate.
+          </p>
+        </section>
+
+        <!-- Palette -->
+        <section
+          class="group relative col-span-1 rounded-3xl border border-primary bg-surface p-6 md:col-span-7"
+        >
+          <div
+            class="pointer-events-none absolute inset-0 z-10 m-px rounded-3xl border border-brand-rose opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          ></div>
+          <h2 class="mb-6 font-code-sm text-code-sm text-primary">{ Colors }</h2>
+          <ul class="grid grid-cols-2 gap-4 md:grid-cols-5">
+            <li class="flex flex-col">
+              <span class="mb-2 h-24 w-full rounded-full border border-primary bg-brand-bg"></span>
+              <span class="font-code-sm text-code-sm text-on-surface-variant">Base</span>
+              <span class="font-code-sm text-[10px] text-outline">#FFEFDA</span>
+            </li>
+            <li class="flex flex-col">
+              <span class="mb-2 h-24 w-full rounded-full border border-primary bg-brand-slate"></span>
+              <span class="font-code-sm text-code-sm text-on-surface-variant">Dark Slate</span>
+              <span class="font-code-sm text-[10px] text-outline">#534666</span>
+            </li>
+            <li class="flex flex-col">
+              <span class="mb-2 h-24 w-full rounded-full border border-primary bg-brand-rose"></span>
+              <span class="font-code-sm text-code-sm text-on-surface-variant">Muted Rose</span>
+              <span class="font-code-sm text-[10px] text-outline">#CD7672</span>
+            </li>
+            <li class="flex flex-col">
+              <span class="mb-2 h-24 w-full rounded-full border border-primary bg-brand-terra"></span>
+              <span class="font-code-sm text-code-sm text-on-surface-variant">Terracotta</span>
+              <span class="font-code-sm text-[10px] text-outline">#DC8665</span>
+            </li>
+            <li class="flex flex-col">
+              <span class="mb-2 h-24 w-full rounded-full border border-primary bg-brand-gold"></span>
+              <span class="font-code-sm text-code-sm text-on-surface-variant">Warm Gold</span>
+              <span class="font-code-sm text-[10px] text-outline">#EEB462</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Tipografia -->
+        <section
+          class="group relative col-span-1 mt-6 rounded-3xl border border-primary bg-surface p-6 md:col-span-12"
+        >
+          <div
+            class="pointer-events-none absolute inset-0 z-10 m-px rounded-3xl border border-brand-rose opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          ></div>
+          <h2 class="mb-8 font-code-sm text-code-sm text-primary">{ Typography }</h2>
+          <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div>
+              <p class="mb-2 font-code-sm text-code-sm text-outline">
+                // font-family: Playfair Display;
+              </p>
+              <div class="mb-4 border-l border-primary pl-4">
+                <p class="mb-2 font-display-lg text-display-lg-mobile text-primary md:text-display-lg">
+                  Aa
+                </p>
+                <p class="font-headline-md text-headline-md text-primary">Titoli e display</p>
+              </div>
+              <p class="font-body-md text-code-sm text-on-surface-variant">
+                Per gli ancoraggi grossi: titoli di pagina e di sezione. È la parte
+                editoriale del sistema.
+              </p>
+            </div>
+
+            <div>
+              <p class="mb-2 font-code-sm text-code-sm text-outline">// font-family: Inter;</p>
+              <div class="mb-4 border-l border-primary pl-4">
+                <p class="mb-2 font-body-lg text-display-lg-mobile text-primary md:text-display-lg">
+                  Aa
+                </p>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">Testo corrente</p>
+              </div>
+              <p class="font-body-md text-code-sm text-on-surface-variant">
+                Sans leggibile per i paragrafi lunghi e per tutto quello che è
+                interfaccia.
+              </p>
+            </div>
+
+            <div>
+              <p class="mb-2 font-code-sm text-code-sm text-outline">// font-family: JetBrains Mono;</p>
+              <div class="mb-4 border-l border-primary pl-4">
+                <p class="mb-2 font-code-sm text-display-lg-mobile text-primary md:text-display-lg">
+                  Aa
+                </p>
+                <p class="font-label-caps text-label-caps text-primary">Etichette e codice</p>
+              </div>
+              <p class="font-body-md text-code-sm text-on-surface-variant">
+                Riservato alla sintassi, alle etichette strutturali e ai dati che
+                devono stare in colonna.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Componenti -->
+        <section class="col-span-1 mt-6 md:col-span-12">
+          <hr class="my-8 border-t border-dashed border-primary" />
+          <h2 class="mb-6 font-headline-md text-headline-md text-primary">Componenti</h2>
+          <div class="flex flex-wrap items-end gap-6">
+            <div class="space-y-4">
+              <button
+                class="block rounded-full bg-brand-terra px-6 py-3 font-code-sm text-code-sm text-brand-slate transition-opacity hover:opacity-90"
+                type="button"
+              >
+                Azione primaria
+              </button>
+              <button
+                class="block rounded-full border border-brand-slate bg-transparent px-6 py-3 font-code-sm text-code-sm text-brand-slate transition-colors hover:bg-brand-slate hover:text-surface"
+                type="button"
+              >
+                Azione secondaria
+              </button>
+            </div>
+
+            <div class="w-full md:w-64">
+              <label class="mb-1 block pl-4 font-code-sm text-code-sm text-primary" for="esempio-email">
+                email_address
+              </label>
+              <input
+                class="w-full rounded-full border border-primary bg-transparent px-4 py-2 font-body-md text-body-md text-on-background placeholder-outline focus:border-brand-rose focus:outline-none"
+                id="esempio-email"
+                placeholder="parisimartino07@gmail.com"
+                type="email"
+              />
+            </div>
+
+            <div class="flex gap-2">
+              <span
+                class="inline-flex items-center rounded-full bg-brand-rose px-3 py-1 font-code-sm text-[12px] text-surface"
+              >
+                tag="frontend"
+              </span>
+              <span
+                class="inline-flex items-center rounded-full border border-primary bg-transparent px-3 py-1 font-code-sm text-[12px] text-primary"
+              >
+                tag="ui/ux"
+              </span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="mt-20 border-t border-outline-variant pt-8">
+        <a
+          class="font-code-sm text-code-sm text-primary underline decoration-brand-rose underline-offset-4"
+          href="/"
+        >
+          ← torna a mar7yyy.it
+        </a>
+      </footer>
+    </main>
+  </body>
+</html>

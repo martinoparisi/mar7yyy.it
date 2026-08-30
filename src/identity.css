@@ -1,0 +1,114 @@
+@import "tailwindcss" source(none);
+@source "../identity.html";
+
+/* ------------------------------------------------------------------
+   Token della pagina /identity. Sono quelli del design Stitch e vivono
+   solo qui: la landing ha la sua palette in index.css e non si toccano.
+------------------------------------------------------------------- */
+@theme {
+  --color-brand-bg: #ffefda;
+  --color-brand-slate: #534666;
+  --color-brand-rose: #cd7672;
+  --color-brand-terra: #dc8665;
+  --color-brand-gold: #eeb462;
+
+  --color-primary: #3c2f4e;
+  --color-primary-container: #534666;
+  --color-on-primary-container: #c6b6db;
+  --color-secondary: #934845;
+
+  --color-background: #fdf8fb;
+  --color-surface: #fdf8fb;
+  --color-surface-container-low: #f8f2f5;
+  --color-surface-container-high: #ece7ea;
+  --color-on-background: #1d1b1d;
+  --color-on-surface: #1d1b1d;
+  --color-on-surface-variant: #49454d;
+  --color-outline: #7a757d;
+  --color-outline-variant: #cbc4cd;
+
+  --font-display-lg: "Playfair Display", ui-serif, serif;
+  --font-headline-md: "Playfair Display", ui-serif, serif;
+  --font-body-lg: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-body-md: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-code-sm: "JetBrains Mono", ui-monospace, monospace;
+  --font-label-caps: "JetBrains Mono", ui-monospace, monospace;
+
+  --text-display-lg: 64px;
+  --text-display-lg--line-height: 1.1;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
+
+  --text-display-lg-mobile: 40px;
+  --text-display-lg-mobile--line-height: 1.2;
+  --text-display-lg-mobile--font-weight: 700;
+
+  --text-headline-md: 32px;
+  --text-headline-md--line-height: 1.3;
+  --text-headline-md--font-weight: 600;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 1.6;
+  --text-body-lg--font-weight: 400;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 1.5;
+  --text-body-md--font-weight: 400;
+
+  --text-code-sm: 14px;
+  --text-code-sm--line-height: 1.4;
+  --text-code-sm--font-weight: 400;
+
+  --text-label-caps: 12px;
+  --text-label-caps--line-height: 1;
+  --text-label-caps--letter-spacing: 0.1em;
+  --text-label-caps--font-weight: 600;
+
+  --spacing-gutter: 24px;
+  --spacing-margin-desktop: 64px;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-background);
+  /* griglia millimetrata: e' lo sfondo del design, non decorazione a caso */
+  background-image:
+    linear-gradient(to right, rgb(83 70 102 / 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(83 70 102 / 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Filigrana di simboli dietro al contenuto. */
+.syntax-bg::before {
+  content: "{ } < > [ ] //";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-5deg);
+  font-family: var(--font-code-sm);
+  font-size: 20vw;
+  white-space: nowrap;
+  color: rgb(83 70 102 / 0.02);
+  pointer-events: none;
+}
+
+.code-well {
+  background-color: rgb(83 70 102 / 0.05);
+  border-left: 4px solid var(--color-brand-slate);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-rose);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.001ms !important;
+  }
+}

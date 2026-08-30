@@ -74,9 +74,18 @@ export default function App() {
 
         <footer className="border-t border-line px-6 py-12 md:px-12">
           <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6">
-            <p className="font-mono text-xs text-ink-faint">
-              © {new Date().getFullYear()} {persona.nome} — {persona.luogo}
-            </p>
+            <div className="flex flex-wrap items-center gap-5">
+              <p className="font-mono text-xs text-ink-faint">
+                © {new Date().getFullYear()} {persona.nome} — {persona.luogo}
+              </p>
+              {/* pagina a se', fuori dalla SPA: link vero, non scrollTo */}
+              <a
+                href="/identity"
+                className="rounded-full border border-line px-4 py-1.5 font-mono text-[0.68rem] text-ink-dim transition-colors duration-300 hover:border-line-strong hover:text-ciano"
+              >
+                Brand identity ↗
+              </a>
+            </div>
             <ul className="flex flex-wrap gap-5">
               {links.map((l) => (
                 <li key={l.id}>

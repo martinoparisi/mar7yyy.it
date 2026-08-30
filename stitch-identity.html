@@ -1,0 +1,2433 @@
+<!-- Design System -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>mar7yyy - Portfolio Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-error-container": "#93000a",
+                    "on-primary": "#ffffff",
+                    "surface-container-high": "#ece7ea",
+                    "tertiary-fixed": "#ffdbce",
+                    "secondary-fixed": "#ffdad7",
+                    "inverse-surface": "#323032",
+                    "outline": "#7a757d",
+                    "on-surface-variant": "#49454d",
+                    "surface": "#fdf8fb",
+                    "on-background": "#1d1b1d",
+                    "on-tertiary-fixed-variant": "#743419",
+                    "surface-dim": "#ded9dc",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#665879",
+                    "on-secondary-fixed-variant": "#76312f",
+                    "on-secondary-container": "#793331",
+                    "primary-fixed": "#ecdcff",
+                    "surface-variant": "#e6e1e4",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "inverse-primary": "#d1bfe6",
+                    "on-tertiary-container": "#ffa786",
+                    "tertiary-fixed-dim": "#ffb59a",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#c6b6db",
+                    "background": "#fdf8fb",
+                    "tertiary-container": "#7b391e",
+                    "tertiary": "#5e2309",
+                    "outline-variant": "#cbc4cd",
+                    "on-surface": "#1d1b1d",
+                    "on-secondary-fixed": "#3d0608",
+                    "secondary": "#934845",
+                    "on-tertiary-fixed": "#380d00",
+                    "primary": "#3c2f4e",
+                    "surface-container-highest": "#e6e1e4",
+                    "secondary-container": "#ff9f9a",
+                    "surface-container": "#f2ecef",
+                    "primary-fixed-dim": "#d1bfe6",
+                    "surface-container-low": "#f8f2f5",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#211633",
+                    "primary-container": "#534666",
+                    "secondary-fixed-dim": "#ffb3af",
+                    "inverse-on-surface": "#f5eff2",
+                    "surface-bright": "#fdf8fb",
+                    "on-primary-fixed-variant": "#4e4161",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "margin-mobile": "20px",
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "max-width": "1200px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "body-md": ["Inter"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "code-sm": ["JetBrains Mono"],
+                    "label-caps": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "code-sm": ["14px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .syntax-divider {
+                @apply font-code-sm text-code-sm text-outline flex items-center justify-center gap-4 py-8 opacity-50;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#FFEFDA] text-on-surface font-body-lg text-body-lg min-h-screen antialiased selection:bg-secondary-container selection:text-on-secondary-container flex flex-col md:flex-row">
+<!-- Desktop SideNav / Mobile Drawer Mapping -->
+<nav class="hidden md:flex flex-col h-screen w-80 fixed inset-y-0 left-0 z-50 overflow-y-auto bg-surface dark:bg-on-background border-r border-primary dark:border-primary-fixed">
+<div class="p-gutter">
+<h1 class="font-display-lg text-display-lg text-primary mb-2">mar7yyy</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">Full-Stack Engineer</p>
+<p class="font-code-sm text-code-sm text-outline">v1.0.4</p>
+</div>
+<div class="px-4 py-8 flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container font-bold border-l-4 border-secondary transition-colors cursor-pointer" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-body-md text-body-md">Portfolio</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<span class="font-body-md text-body-md">Showcase</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu_book</span>
+<span class="font-body-md text-body-md">DevLog</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">send</span>
+<span class="font-body-md text-body-md">Message</span>
+</a>
+</div>
+</nav>
+<!-- Mobile TopAppBar -->
+<header class="md:hidden flex justify-between items-center px-gutter py-4 w-full top-0 sticky bg-surface dark:bg-on-background border-b border-primary dark:border-primary-fixed z-40">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-primary-fixed">{ mar7yyy }</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-80 pb-32 md:pb-16 px-margin-mobile md:px-margin-desktop pt-12 max-w-max-width mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-24 md:mb-32">
+<div class="flex flex-col md:flex-row items-start gap-gutter">
+<div class="w-full md:w-1/2 flex justify-center md:justify-start">
+<img alt="mar7yyy Brand Logo" class="w-48 h-48 md:w-64 md:h-64 object-cover border border-primary p-2 bg-surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaHt6rH0vKgGDZsk5RLtT3lirWYpinTB1_BZ9PC0wqs6KwfGrqfgu5fD8vBwX2go2D0aejMiLW9qyjNrnQx5lcFqvYuOq47gsC4sTklGCugub28AJGK_Pzc8Ywdk_rS2Kl5lGDQiu3Uc4XXhXfQbvbR78QJb6KeZDj7_b6oycNKbu4TfTYmu86q7oq9zddW2R75_zkIXh0sRXvSFjoxbj7NdJz4iHdxIT42lBooHZ78zUHy3WySZxG"/>
+</div>
+<div class="w-full md:w-1/2 pt-8">
+<h2 class="font-code-sm text-code-sm text-primary mb-4">[ system.init() ]</h2>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6">Building elegant solutions through <span class="text-secondary">structured logic</span>.</h1>
+<div class="flex gap-4">
+<button class="bg-[#DC8665] text-primary px-6 py-3 font-code-sm text-code-sm uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center gap-2">
+<span>View Work</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Syntax Divider -->
+<div class="syntax-divider">
+<span>[</span>
+<span class="tracking-[0.5em]">- - - - -</span>
+<span>]</span>
+</div>
+<!-- About Me Section -->
+<section class="my-24 md:my-32">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4 border-t border-primary pt-4">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">About Context</h3>
+<p class="font-code-sm text-code-sm text-outline">const role = "Engineer";</p>
+</div>
+<div class="md:col-span-8 md:border-l md:border-primary md:pl-8">
+<p class="font-body-lg text-body-lg text-on-surface mb-6">
+                        Bridging the gap between the intellectual world of publishing and the structured world of software engineering. My approach to design and development relies on a fusion of editorial elegance and technical precision.
+                    </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        I specialize in creating robust, scalable systems that do not compromise on user experience or aesthetic quality. Every line of code is treated with the same reverence as classical architectural motifs.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Syntax Divider -->
+<div class="syntax-divider">
+<span>&lt;</span>
+<span class="tracking-[0.5em]">/ / / / /</span>
+<span>&gt;</span>
+</div>
+<!-- Featured Snippet Section -->
+<section class="my-24 md:my-32">
+<div class="border border-primary bg-surface p-6 md:p-8 relative">
+<div class="absolute -top-3 left-6 bg-surface px-2 font-code-sm text-code-sm text-primary">
+                    { Featured_Snippet }
+                </div>
+<div class="bg-primary-container p-6 overflow-x-auto border border-primary mt-4">
+<pre class="font-code-sm text-code-sm text-on-primary-container leading-relaxed"><span class="text-[#EEB462]">function</span> <span class="text-secondary-fixed">optimizeExperience</span>(userContext) {
+  <span class="text-outline">// Ensure absolute clarity</span>
+  <span class="text-[#EEB462]">if</span> (!userContext.isClear) {
+    <span class="text-[#EEB462]">return</span> <span class="text-secondary-fixed">applyMinimalism</span>(userContext);
+  }
+  
+  <span class="text-[#EEB462]">const</span> ui = <span class="text-[#EEB462]">new</span> <span class="text-secondary-fixed">Interface</span>({
+    style: <span class="text-tertiary-fixed-dim">'brutalist-chic'</span>,
+    elevation: <span class="text-tertiary-fixed-dim">'tonal-layers'</span>,
+    typography: <span class="text-tertiary-fixed-dim">'editorial-mono'</span>
+  });
+
+  <span class="text-[#EEB462]">return</span> ui.<span class="text-secondary-fixed">render</span>();
+}
+                    </pre>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-16 bg-surface dark:bg-on-background px-4 pb-safe border-t border-primary dark:border-primary-fixed z-50">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim font-bold before:content-['&gt;'] before:mr-1 transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">code</span>
+<span class="font-label-caps text-label-caps">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">article</span>
+<span class="font-label-caps text-label-caps">Snippets</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">mail</span>
+<span class="font-label-caps text-label-caps">Contact</span>
+</a>
+</nav>
+</body></html>
+
+<!-- mar7yyy Brand Logo -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brand Identity - mar7yyy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ece7ea",
+                        "tertiary-fixed": "#ffdbce",
+                        "secondary-fixed": "#ffdad7",
+                        "inverse-surface": "#323032",
+                        "outline": "#7a757d",
+                        "on-surface-variant": "#49454d",
+                        "surface": "#fdf8fb",
+                        "on-background": "#1d1b1d",
+                        "on-tertiary-fixed-variant": "#743419",
+                        "surface-dim": "#ded9dc",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#665879",
+                        "on-secondary-fixed-variant": "#76312f",
+                        "on-secondary-container": "#793331",
+                        "primary-fixed": "#ecdcff",
+                        "surface-variant": "#e6e1e4",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#d1bfe6",
+                        "on-tertiary-container": "#ffa786",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c6b6db",
+                        "background": "#fdf8fb",
+                        "tertiary-container": "#7b391e",
+                        "tertiary": "#5e2309",
+                        "outline-variant": "#cbc4cd",
+                        "on-surface": "#1d1b1d",
+                        "on-secondary-fixed": "#3d0608",
+                        "secondary": "#934845",
+                        "on-tertiary-fixed": "#380d00",
+                        "primary": "#3c2f4e",
+                        "surface-container-highest": "#e6e1e4",
+                        "secondary-container": "#ff9f9a",
+                        "surface-container": "#f2ecef",
+                        "primary-fixed-dim": "#d1bfe6",
+                        "surface-container-low": "#f8f2f5",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#211633",
+                        "primary-container": "#534666",
+                        "secondary-fixed-dim": "#ffb3af",
+                        "inverse-on-surface": "#f5eff2",
+                        "surface-bright": "#fdf8fb",
+                        "on-primary-fixed-variant": "#4e4161",
+                        "error-container": "#ffdad6",
+                        
+                        "brand-bg": "#FFEFDA",
+                        "brand-slate": "#534666",
+                        "brand-rose": "#CD7672",
+                        "brand-terra": "#DC8665",
+                        "brand-gold": "#EEB462"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "max-width": "1200px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "code-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "code-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #fdf8fb;
+            background-image: 
+                linear-gradient(to right, rgba(83, 70, 102, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(83, 70, 102, 0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        
+        .syntax-bg::before {
+            content: '{ } < > [ ] //';
+            position: absolute;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20vw;
+            color: rgba(83, 70, 102, 0.02);
+            z-index: -1;
+            white-space: nowrap;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-5deg);
+            pointer-events: none;
+        }
+        
+        .code-well {
+            background-color: rgba(83, 70, 102, 0.05);
+            border-left: 4px solid #534666;
+        }
+    </style>
+</head>
+<body class="text-on-background relative min-h-screen overflow-x-hidden font-body-md text-body-md">
+<!-- Background Decoration -->
+<div class="syntax-bg fixed inset-0 w-full h-full pointer-events-none"></div>
+<!-- Navigation Area -->
+<div class="hidden md:flex flex-row">
+<!-- NavigationDrawer (Desktop Side Nav Example) -->
+<nav class="h-full w-80 border-r border-primary bg-surface fixed inset-y-0 left-0 z-50 overflow-y-auto hidden lg:block">
+<div class="p-6">
+<div class="flex items-center space-x-3 mb-8">
+<img alt="mar7yyy developer portrait" class="w-12 h-12 rounded-full border border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaHt6rH0vKgGDZsk5RLtT3lirWYpinTB1_BZ9PC0wqs6KwfGrqfgu5fD8vBwX2go2D0aejMiLW9qyjNrnQx5lcFqvYuOq47gsC4sTklGCugub28AJGK_Pzc8Ywdk_rS2Kl5lGDQiu3Uc4XXhXfQbvbR78QJb6KeZDj7_b6oycNKbu4TfTYmu86q7oq9zddW2R75_zkIXh0sRXvSFjoxbj7NdJz4iHdxIT42lBooHZ78zUHy3WySZxG"/>
+<div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary leading-none text-2xl">{ mar7yyy }</h2>
+<p class="font-code-sm text-code-sm text-on-surface-variant">Full-Stack Engineer</p>
+<span class="font-code-sm text-code-sm text-outline text-[10px]">v1.0.4</span>
+</div>
+</div>
+<div class="space-y-2 font-body-md text-body-md">
+<!-- Home mapping to Showcase for active state logic -->
+<a class="bg-primary-container text-on-primary-container font-bold border-l-4 border-secondary flex items-center px-4 py-3 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined mr-3">person</span>
+                        Portfolio
+                    </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high flex items-center px-4 py-3 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 0;">terminal</span>
+                        Showcase
+                    </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high flex items-center px-4 py-3 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 0;">menu_book</span>
+                        DevLog
+                    </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high flex items-center px-4 py-3 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 0;">send</span>
+                        Message
+                    </a>
+</div>
+</div>
+</nav>
+<!-- TopAppBar (Desktop / Tablet) -->
+<header class="w-full top-0 sticky border-b border-primary bg-surface flex justify-between items-center px-gutter py-4 w-full lg:ml-80 z-40 hidden md:flex">
+<div class="flex items-center">
+<span class="material-symbols-outlined mr-2 text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary">{ mar7yyy }</span>
+</div>
+<!-- Navigation Links -->
+<div class="flex space-x-6">
+<!-- No specific active match, leaving default inactive mapping -->
+<a class="text-secondary font-bold hover:text-secondary transition-colors cursor-pointer active:opacity-80" href="#">Style Guide</a>
+<a class="text-outline hover:text-secondary transition-colors cursor-pointer active:opacity-80" href="#">Components</a>
+<a class="text-outline hover:text-secondary transition-colors cursor-pointer active:opacity-80" href="#">Layouts</a>
+</div>
+</header>
+</div>
+<!-- Main Content Canvas -->
+<main class="lg:ml-80 pt-8 pb-32 px-gutter md:px-margin-desktop max-w-[max-width] mx-auto relative z-10">
+<!-- Header Section -->
+<section class="mb-16">
+<h1 class="font-display-lg text-display-lg text-primary mb-4 hidden md:block">Brand Identity</h1>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-4 md:hidden">Brand Identity</h1>
+<div class="font-code-sm text-code-sm text-outline mb-8">
+                // System.StyleGuide.Initialize()
+            </div>
+<div class="text-outline-variant select-none mb-12 hidden md:block">
+                [ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ]
+            </div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Logo Card -->
+<div class="col-span-1 md:col-span-5 bg-surface border border-primary p-6 relative group overflow-hidden">
+<div class="absolute inset-0 border border-brand-rose opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 m-[1px]"></div>
+<h3 class="font-code-sm text-code-sm text-primary mb-6">{ Logo }</h3>
+<div class="aspect-square flex items-center justify-center p-8 code-well mb-6">
+<img alt="mar7yyy Brand Logo" class="w-full h-auto max-w-xs object-contain shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaHt6rH0vKgGDZsk5RLtT3lirWYpinTB1_BZ9PC0wqs6KwfGrqfgu5fD8vBwX2go2D0aejMiLW9qyjNrnQx5lcFqvYuOq47gsC4sTklGCugub28AJGK_Pzc8Ywdk_rS2Kl5lGDQiu3Uc4XXhXfQbvbR78QJb6KeZDj7_b6oycNKbu4TfTYmu86q7oq9zddW2R75_zkIXh0sRXvSFjoxbj7NdJz4iHdxIT42lBooHZ78zUHy3WySZxG"/>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Primary mark. Minimalist structural integration of '7' and 'y'.
+                </p>
+</div>
+<!-- Color Palette Card -->
+<div class="col-span-1 md:col-span-7 bg-surface border border-primary p-6 relative group">
+<div class="absolute inset-0 border border-brand-rose opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 m-[1px]"></div>
+<h3 class="font-code-sm text-code-sm text-primary mb-6">{ Colors }</h3>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+<!-- Swatch 1 -->
+<div class="flex flex-col">
+<div class="h-24 w-full border border-primary mb-2" style="background-color: #FFEFDA;"></div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Base</span>
+<span class="font-code-sm text-code-sm text-outline text-[10px]">#FFEFDA</span>
+</div>
+<!-- Swatch 2 -->
+<div class="flex flex-col">
+<div class="h-24 w-full border border-primary mb-2" style="background-color: #534666;"></div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Dark Slate</span>
+<span class="font-code-sm text-code-sm text-outline text-[10px]">#534666</span>
+</div>
+<!-- Swatch 3 -->
+<div class="flex flex-col">
+<div class="h-24 w-full border border-primary mb-2" style="background-color: #CD7672;"></div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Muted Rose</span>
+<span class="font-code-sm text-code-sm text-outline text-[10px]">#CD7672</span>
+</div>
+<!-- Swatch 4 -->
+<div class="flex flex-col">
+<div class="h-24 w-full border border-primary mb-2" style="background-color: #DC8665;"></div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Terracotta</span>
+<span class="font-code-sm text-code-sm text-outline text-[10px]">#DC8665</span>
+</div>
+<!-- Swatch 5 -->
+<div class="flex flex-col">
+<div class="h-24 w-full border border-primary mb-2" style="background-color: #EEB462;"></div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Warm Gold</span>
+<span class="font-code-sm text-code-sm text-outline text-[10px]">#EEB462</span>
+</div>
+</div>
+</div>
+<!-- Typography Hierarchy Card -->
+<div class="col-span-1 md:col-span-12 bg-surface border border-primary p-6 relative group mt-6">
+<div class="absolute inset-0 border border-brand-rose opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 m-[1px]"></div>
+<h3 class="font-code-sm text-code-sm text-primary mb-8">{ Typography }</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Display / Headings -->
+<div>
+<div class="font-code-sm text-code-sm text-outline mb-2">// font-family: Playfair Display;</div>
+<div class="border-l border-primary pl-4 mb-4">
+<h4 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-2 md:hidden">Aa</h4>
+<h4 class="font-display-lg text-display-lg text-primary mb-2 hidden md:block">Aa</h4>
+<p class="font-headline-md text-headline-md text-primary">Headings &amp; Display</p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Used for major anchors, titles, and conveying editorial elegance.</p>
+</div>
+<!-- Body -->
+<div>
+<div class="font-code-sm text-code-sm text-outline mb-2">// font-family: Inter;</div>
+<div class="border-l border-primary pl-4 mb-4">
+<h4 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-2 font-body-lg text-body-lg" style="font-family: 'Inter', sans-serif;">Aa</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Body Content</p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Clean, legible sans-serif for long-form reading and functional UI elements.</p>
+</div>
+<!-- Code / Labels -->
+<div>
+<div class="font-code-sm text-code-sm text-outline mb-2">// font-family: JetBrains Mono;</div>
+<div class="border-l border-primary pl-4 mb-4">
+<h4 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-2 font-code-sm text-code-sm text-2xl" style="font-family: 'JetBrains Mono', monospace;">Aa</h4>
+<p class="font-label-caps text-label-caps text-primary">Labels &amp; Code</p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Reserved for technical syntax, structural labels, and monospaced data.</p>
+</div>
+</div>
+</div>
+<!-- UI Elements Demo -->
+<div class="col-span-1 md:col-span-12 mt-6">
+<div class="text-outline-variant select-none mb-6">
+<hr class="border-t border-dashed border-primary my-8"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Component Examples</h3>
+<div class="flex flex-wrap gap-6 items-end">
+<!-- Buttons -->
+<div class="space-y-4">
+<button class="bg-[#DC8665] text-[#534666] font-code-sm text-code-sm px-6 py-3 rounded-none hover:bg-opacity-90 transition-opacity">
+                            Primary Action
+                        </button>
+<br/>
+<button class="bg-transparent border border-[#534666] text-[#534666] font-code-sm text-code-sm px-6 py-3 rounded-none hover:bg-[#534666] hover:text-white transition-colors">
+                            Secondary Action
+                        </button>
+</div>
+<!-- Input -->
+<div class="w-full md:w-64">
+<label class="block font-code-sm text-code-sm text-primary mb-1">email_address</label>
+<input class="w-full bg-transparent border-0 border-b border-primary focus:ring-0 focus:border-brand-rose px-0 py-2 font-body-md text-body-md text-on-background placeholder-outline" placeholder="hello@mar7yyy.dev" type="text"/>
+</div>
+<!-- Chips -->
+<div class="flex gap-2">
+<span class="inline-flex items-center px-3 py-1 bg-[#CD7672] text-white font-code-sm text-code-sm rounded-none text-xs">
+                            tag="frontend"
+                        </span>
+<span class="inline-flex items-center px-3 py-1 bg-transparent border border-primary text-primary font-code-sm text-code-sm rounded-none text-xs">
+                            tag="ui/ux"
+                        </span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-16 bg-surface border-t border-primary px-4 pb-safe z-50 md:hidden">
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 hover:bg-surface-container-low w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-caps text-label-caps text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary font-bold before:content-['&gt;'] before:mr-1 transition-all duration-200 active:scale-95 hover:bg-surface-container-low w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">code</span>
+<span class="font-label-caps text-label-caps text-[10px]">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 hover:bg-surface-container-low w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">article</span>
+<span class="font-label-caps text-label-caps text-[10px]">Snippets</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 hover:bg-surface-container-low w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">mail</span>
+<span class="font-label-caps text-label-caps text-[10px]">Contact</span>
+</a>
+</nav>
+</body></html>
+
+<!-- Portfolio Home -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>mar7yyy - Projects</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ece7ea",
+                        "tertiary-fixed": "#ffdbce",
+                        "secondary-fixed": "#ffdad7",
+                        "inverse-surface": "#323032",
+                        "outline": "#7a757d",
+                        "on-surface-variant": "#49454d",
+                        "surface": "#fdf8fb",
+                        "on-background": "#1d1b1d",
+                        "on-tertiary-fixed-variant": "#743419",
+                        "surface-dim": "#ded9dc",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#665879",
+                        "on-secondary-fixed-variant": "#76312f",
+                        "on-secondary-container": "#793331",
+                        "primary-fixed": "#ecdcff",
+                        "surface-variant": "#e6e1e4",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#d1bfe6",
+                        "on-tertiary-container": "#ffa786",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c6b6db",
+                        "background": "#FFEFDA",
+                        "tertiary-container": "#7b391e",
+                        "tertiary": "#5e2309",
+                        "outline-variant": "#cbc4cd",
+                        "on-surface": "#1d1b1d",
+                        "on-secondary-fixed": "#3d0608",
+                        "secondary": "#934845",
+                        "on-tertiary-fixed": "#380d00",
+                        "primary": "#3c2f4e",
+                        "surface-container-highest": "#e6e1e4",
+                        "secondary-container": "#ff9f9a",
+                        "surface-container": "#f2ecef",
+                        "primary-fixed-dim": "#d1bfe6",
+                        "surface-container-low": "#f8f2f5",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#211633",
+                        "primary-container": "#534666",
+                        "secondary-fixed-dim": "#ffb3af",
+                        "inverse-on-surface": "#f5eff2",
+                        "surface-bright": "#fdf8fb",
+                        "on-primary-fixed-variant": "#4e4161",
+                        "error-container": "#ffdad6",
+                        "dark-slate": "#534666",
+                        "muted-rose": "#CD7672",
+                        "terracotta": "#DC8665",
+                        "warm-gold": "#EEB462"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0",
+                        "lg": "0",
+                        "xl": "0",
+                        "full": "0"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "max-width": "1200px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "code-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "code-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #FFEFDA;
+            color: #1d1b1d;
+        }
+        
+        /* Fixed Grid Overlay for development/reference - hidden by default */
+        .grid-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .grid-overlay .container { height: 100%; }
+        .grid-column { background: rgba(220, 134, 101, 0.1); }
+        
+        .syntax-divider {
+            color: #cbc4cd;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .syntax-divider::before, .syntax-divider::after {
+            content: "// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //";
+            display: inline-block;
+            opacity: 0.5;
+        }
+        
+        .code-layer {
+            background-color: rgba(83, 70, 102, 0.05);
+            border: 1px solid #534666;
+        }
+        
+        .ghost-card {
+            transition: all 0.2s ease;
+        }
+        .ghost-card:hover {
+            outline: 1px solid #CD7672;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md antialiased min-h-screen flex flex-col selection:bg-terracotta selection:text-surface">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-on-background border-b border-primary dark:border-primary-fixed z-40 transition-transform duration-300" id="top-app-bar">
+<div class="flex justify-between items-center px-gutter py-4 w-full max-w-[1200px] mx-auto">
+<div class="flex items-center gap-4 cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed font-headline-md text-headline-md-mobile" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-primary-fixed font-bold tracking-tight">{ mar7yyy }</h1>
+</div>
+<!-- Desktop Nav (Hidden on Mobile) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-caps text-label-caps text-outline dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Home</a>
+<a class="font-label-caps text-label-caps text-secondary dark:text-secondary-fixed font-bold hover:text-secondary dark:hover:text-secondary-fixed transition-colors flex items-center" href="#"><span class="text-warm-gold mr-2">&gt;</span>Projects</a>
+<a class="font-label-caps text-label-caps text-outline dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Snippets</a>
+<a class="font-label-caps text-label-caps text-outline dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed transition-colors" href="#">Contact</a>
+</nav>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-24">
+<!-- Header Section -->
+<section class="mb-16">
+<p class="font-code-sm text-code-sm text-terracotta mb-4 uppercase tracking-widest"><span class="text-outline mr-2">const</span> ACTIVE_PROJECTS</p>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-6">Works in Progress <span class="text-outline font-code-sm text-code-sm opacity-50 align-top ml-2">[4]</span></h2>
+<div class="w-full h-[1px] bg-dark-slate mb-8"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                A selection of recent technical explorations bridging the gap between rigorous systems programming and high-fidelity user interfaces.
+            </p>
+</section>
+<!-- Syntax Divider -->
+<div class="font-code-sm text-code-sm syntax-divider my-12 text-outline-variant"></div>
+<!-- Project List -->
+<div class="grid grid-cols-1 gap-8 md:gap-12">
+<!-- Project Card 1 -->
+<article class="ghost-card border border-dark-slate p-6 md:p-8 bg-surface-bright flex flex-col md:flex-row gap-8">
+<div class="md:w-1/3 flex-shrink-0">
+<div class="w-full h-48 md:h-full bg-cover bg-center border border-dark-slate filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="A sophisticated data visualization dashboard showing abstract real-time metrics. The interface is clean, modernist, and brutalist, featuring stark lines, off-white backgrounds (#FFEFDA), and precise typography. Accents of terracotta and deep slate provide structural hierarchy. The mood is analytical and precise." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAx5yWoZ1_0FwKojlkSM_4r9mxLkShJsyu8JZrWgdEwJrZbzGZcTTrezn0GFpEKqBl-3wnA3ue50GZjjU0Cu-PnM1v14BmV733gbH2fV_s85rWHluG_Yd6PkLEDNVqa7tpeSpDuDCElAREAqKW-JvaG176pIU_QHSOx5uy1AeVixfOcaMOrD6UinD7fYf3bEOcwsMkvn_jij2ZVJ16VhOj52ktml7tgWkweYKdbczMDpbxJ3UQsajLm')"></div>
+</div>
+<div class="flex flex-col justify-between md:w-2/3">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-on-background"><span class="text-muted-rose mr-2 font-code-sm text-code-sm">{</span>Nexus Engine<span class="text-muted-rose ml-2 font-code-sm text-code-sm">}</span></h3>
+<span class="font-code-sm text-code-sm text-terracotta border border-terracotta px-2 py-1 uppercase text-[10px]">Open Source</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            A high-performance real-time synchronization engine designed for edge-computing applications. Implements a custom CRDT (Conflict-free Replicated Data Type) resolving mechanism optimized for low-bandwidth environments.
+                        </p>
+</div>
+<div class="mt-auto pt-6 border-t border-dark-slate/20">
+<div class="flex items-center gap-2 font-code-sm text-code-sm text-outline">
+<span class="text-on-background">stack</span> <span class="text-warm-gold">=</span> <span>[</span>
+<span class="text-dark-slate hover:text-terracotta cursor-default transition-colors">Rust</span>, 
+                            <span class="text-dark-slate hover:text-terracotta cursor-default transition-colors">WebAssembly</span>, 
+                            <span class="text-dark-slate hover:text-terracotta cursor-default transition-colors">React</span>
+<span>]</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 2 -->
+<article class="ghost-card border border-dark-slate p-6 md:p-8 bg-surface-bright flex flex-col md:flex-row gap-8">
+<div class="md:w-1/3 flex-shrink-0">
+<div class="w-full h-48 md:h-full bg-cover bg-center border border-dark-slate filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="A minimalist architectural wireframe of a mobile application interface. The design focuses on structural layout rather than visual polish, utilizing strict grids, stark lines, and a muted off-white palette with sharp terracotta highlights to indicate interactive zones. The atmosphere is functional and raw." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBFBiPj0ZYq0HTV-YOIT0nw2bQch2ikWjNk4hte03QXVkPgAkzEewAmy8JcUGMT0HHbIQDZkOD5W2z9a_kpat0EiDAWO3eFmSKNpZcrg5r5XaJ4ZuzVpLazzYIxagyEJcU3oED7uoEma_8xGIEwXAq36rLfHQw2B8dOTXkNlVb2c0XI7gLJ2M1Xcg_5MROiJ-c5pSu80DiyEfyn6rsoaC0qEUgilxMdE3JT2haDGK9puIzur4IhV_To')"></div>
+</div>
+<div class="flex flex-col justify-between md:w-2/3">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-on-background"><span class="text-muted-rose mr-2 font-code-sm text-code-sm">{</span>Vela UI<span class="text-muted-rose ml-2 font-code-sm text-code-sm">}</span></h3>
+<span class="font-code-sm text-code-sm text-warm-gold border border-warm-gold px-2 py-1 uppercase text-[10px]">Client</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            A highly opinionated, headless design system built for complex enterprise dashboards. Focuses on accessibility, keyboard navigation, and structural density without sacrificing editorial elegance.
+                        </p>
+</div>
+<div class="mt-auto pt-6 border-t border-dark-slate/20">
+<div class="flex items-center gap-2 font-code-sm text-code-sm text-outline flex-wrap">
+<span class="text-on-background">stack</span> <span class="text-warm-gold">=</span> <span>[</span>
+<span class="text-dark-slate hover:text-terracotta cursor-default transition-colors">TypeScript</span>, 
+                            <span class="text-dark-slate hover:text-terracotta cursor-default transition-colors">Tailwind CSS</span>, 
+                            <span class="text-dark-slate hover:text-terracotta cursor-default transition-colors">Radix Primitives</span>
+<span>]</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 3 -->
+<article class="ghost-card border border-dark-slate p-6 md:p-8 bg-surface-bright flex flex-col md:flex-row gap-8">
+<div class="md:w-1/3 flex-shrink-0">
+<div class="w-full h-48 md:h-full bg-cover bg-center border border-dark-slate filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="Abstract rendering of geometric shapes (cubes and spheres) interacting with complex procedural textures. The lighting is harsh and theatrical, casting sharp shadows against a soft, creamy off-white background. The scene suggests computational generation and mathematical precision, rendered in deep purples and warm golds." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAn_zC2Vew_sZxbR5RpntAni6dmOX1nPEN62ee1I4MsXVwTZLqOwIUJlMeJedGbqOkiI-5rr-VXxR0324R6hy557Kk1MuKGpHXp97fervcIZpq4EbPxVfxMQVY8JxDRy__DDFZXbpA7wBauNkwR0zv-SlvTcN4_Rkg-SdbkPzwc52ZnVppRPwhE_gV2G-8VTD2OekgtFC-Jum_t9bPKezkT2O0KHvzXa4eA4m1WXXZ5rav-FNFW5lH7')"></div>
+</div>
+<div class="flex flex-col justify-between md:w-2/3">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-on-background"><span class="text-muted-rose mr-2 font-code-sm text-code-sm">{</span>Shader Lab<span class="text-muted-rose ml-2 font-code-sm text-code-sm">}</span></h3>
+<span class="font-code-sm text-code-sm text-terracotta border border-terracotta px-2 py-1 uppercase text-[10px]">Experiment</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            A playground for WebGL fragment shaders and procedural generation. Explores techniques for simulating natural phenomena (fluid dynamics, cellular automata) within rigid, structured environments.
+                        </p>
+</div>
+<div class="mt-auto pt-6 border-t border-dark-slate/20">
+<div class="flex items-center gap-2 font-code-sm text-code-sm text-outline flex-wrap">
+<span class="text-on-background">stack</span> <span class="text-warm-gold">=</span> <span>[</span>
+<span class="text-dark-slate hover:text-terracotta cursor-default transition-colors">GLSL</span>, 
+                            <span class="text-dark-slate hover:text-terracotta cursor-default transition-colors">Three.js</span>, 
+                            <span class="text-dark-slate hover:text-terracotta cursor-default transition-colors">Svelte</span>
+<span>]</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination/Load More (Code Styled) -->
+<div class="mt-16 flex justify-center">
+<button class="code-layer px-8 py-4 flex items-center gap-2 text-dark-slate hover:bg-dark-slate hover:text-surface transition-colors">
+<span class="font-code-sm text-code-sm">await</span>
+<span class="font-label-caps text-label-caps uppercase">fetch_older_projects()</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-16 bg-surface dark:bg-on-background px-4 pb-safe border-t border-primary dark:border-primary-fixed z-50 transition-transform duration-300" id="bottom-nav-bar">
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant transition-all duration-200 active:scale-95 hover:bg-surface-container-low dark:hover:bg-surface-container-highest p-2 w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-caps text-label-caps text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim font-bold before:content-['&gt;'] before:mr-1 transition-all duration-200 active:scale-95 hover:bg-surface-container-low dark:hover:bg-surface-container-highest p-2 w-16 relative" href="#">
+<!-- Active Indicator logic handled by JSON styles, 'Projects' is active -->
+<span class="material-symbols-outlined mb-1 text-terracotta" style="font-variation-settings: 'FILL' 1;">code</span>
+<span class="font-label-caps text-label-caps text-[10px] text-terracotta">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant transition-all duration-200 active:scale-95 hover:bg-surface-container-low dark:hover:bg-surface-container-highest p-2 w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">article</span>
+<span class="font-label-caps text-label-caps text-[10px]">Snippets</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant transition-all duration-200 active:scale-95 hover:bg-surface-container-low dark:hover:bg-surface-container-highest p-2 w-16" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">mail</span>
+<span class="font-label-caps text-label-caps text-[10px]">Contact</span>
+</a>
+</nav>
+<script>
+        // Simple scroll interaction to hide/show navigation bars
+        let lastScrollY = window.scrollY;
+        const topBar = document.getElementById('top-app-bar');
+        const bottomBar = document.getElementById('bottom-nav-bar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                // Scrolling down
+                topBar.style.transform = 'translateY(-100%)';
+                if(bottomBar) bottomBar.style.transform = 'translateY(100%)';
+            } else {
+                // Scrolling up
+                topBar.style.transform = 'translateY(0)';
+                if(bottomBar) bottomBar.style.transform = 'translateY(0)';
+            }
+            lastScrollY = window.scrollY;
+        });
+    </script>
+</body></html>
+
+<!-- Brand Identity Board -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact | mar7yyy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ece7ea",
+                        "tertiary-fixed": "#ffdbce",
+                        "secondary-fixed": "#ffdad7",
+                        "inverse-surface": "#323032",
+                        "outline": "#7a757d",
+                        "on-surface-variant": "#49454d",
+                        "surface": "#fdf8fb",
+                        "on-background": "#1d1b1d",
+                        "on-tertiary-fixed-variant": "#743419",
+                        "surface-dim": "#ded9dc",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#665879",
+                        "on-secondary-fixed-variant": "#76312f",
+                        "on-secondary-container": "#793331",
+                        "primary-fixed": "#ecdcff",
+                        "surface-variant": "#e6e1e4",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#d1bfe6",
+                        "on-tertiary-container": "#ffa786",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c6b6db",
+                        "background": "#fdf8fb",
+                        "tertiary-container": "#7b391e",
+                        "tertiary": "#5e2309",
+                        "outline-variant": "#cbc4cd",
+                        "on-surface": "#1d1b1d",
+                        "on-secondary-fixed": "#3d0608",
+                        "secondary": "#934845",
+                        "on-tertiary-fixed": "#380d00",
+                        "primary": "#3c2f4e",
+                        "surface-container-highest": "#e6e1e4",
+                        "secondary-container": "#ff9f9a",
+                        "surface-container": "#f2ecef",
+                        "primary-fixed-dim": "#d1bfe6",
+                        "surface-container-low": "#f8f2f5",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#211633",
+                        "primary-container": "#534666",
+                        "secondary-fixed-dim": "#ffb3af",
+                        "inverse-on-surface": "#f5eff2",
+                        "surface-bright": "#fdf8fb",
+                        "on-primary-fixed-variant": "#4e4161",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "max-width": "1200px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "code-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "code-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
+        .code-well { background-color: theme('colors.surface-container-low'); }
+        .input-line { border-bottom: 1px solid theme('colors.primary-container'); }
+        .input-focus:focus { outline: none; border-bottom: 2px solid theme('colors.tertiary'); }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row antialiased">
+<!-- NavigationDrawer (Desktop) -->
+<nav class="hidden md:flex flex-col h-screen w-80 fixed inset-y-0 left-0 z-50 overflow-y-auto bg-surface border-r border-primary-container px-6 py-12">
+<div class="mb-12">
+<h1 class="font-display-lg text-display-lg text-primary mb-2">mar7yyy</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Full-Stack Engineer</p>
+<p class="font-code-sm text-code-sm text-outline mt-2">v1.0.4</p>
+</div>
+<ul class="space-y-4 flex-grow">
+<li>
+<a class="flex items-center space-x-3 p-3 rounded-none text-on-surface-variant hover:bg-surface-container-high transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-body-md text-body-md">Portfolio</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 p-3 rounded-none text-on-surface-variant hover:bg-surface-container-high transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<span class="font-body-md text-body-md">Showcase</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 p-3 rounded-none text-on-surface-variant hover:bg-surface-container-high transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu_book</span>
+<span class="font-body-md text-body-md">DevLog</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 p-3 rounded-none bg-primary-container text-on-primary-container font-bold border-l-4 border-secondary hover:bg-surface-container-high transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">send</span>
+<span class="font-body-md text-body-md">Message</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden flex justify-between items-center px-gutter py-4 w-full top-0 sticky bg-surface text-primary border-b border-primary z-40">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<span class="font-headline-md text-headline-md-mobile">{ mar7yyy }</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow md:ml-80 pt-6 md:pt-16 px-gutter md:px-margin-desktop pb-32 max-w-[max-width] mx-auto w-full">
+<div class="mb-12">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4 flex items-center">
+<span class="font-code-sm text-code-sm text-outline mr-4 opacity-50">&lt;/</span>
+                Contact Me
+                <span class="font-code-sm text-code-sm text-outline ml-4 opacity-50">&gt;</span>
+</h2>
+<div class="font-code-sm text-code-sm text-outline tracking-widest uppercase mb-8">[ - - - Inquiries &amp; Transmissions - - - ]</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Form Column -->
+<div class="lg:col-span-7">
+<div class="border border-primary-container p-8 md:p-12 relative bg-surface-lowest">
+<!-- Decorative Syntax -->
+<div class="absolute -top-3 left-6 bg-surface px-2 font-code-sm text-code-sm text-primary-container">{ Init Connection }</div>
+<form action="#" class="space-y-10 mt-4" method="POST">
+<div class="relative group">
+<label class="block font-body-md text-body-md text-primary-container mb-2 transition-colors group-hover:text-tertiary" for="name">Name</label>
+<input class="w-full bg-surface-container-low border-0 input-line input-focus px-0 py-3 font-code-sm text-code-sm text-on-surface bg-transparent transition-colors rounded-none placeholder:text-outline" id="name" name="name" placeholder="Enter your identifier" type="text"/>
+</div>
+<div class="relative group">
+<label class="block font-body-md text-body-md text-primary-container mb-2 transition-colors group-hover:text-tertiary" for="email">Email</label>
+<input class="w-full bg-surface-container-low border-0 input-line input-focus px-0 py-3 font-code-sm text-code-sm text-on-surface bg-transparent transition-colors rounded-none placeholder:text-outline" id="email" name="email" placeholder="routing@address.com" type="email"/>
+</div>
+<div class="relative group">
+<label class="block font-body-md text-body-md text-primary-container mb-2 transition-colors group-hover:text-tertiary" for="message">Message</label>
+<textarea class="w-full bg-surface-container-low border-0 input-line input-focus px-0 py-3 font-code-sm text-code-sm text-on-surface bg-transparent transition-colors rounded-none resize-none placeholder:text-outline" id="message" name="message" placeholder="Payload content..." rows="5"></textarea>
+</div>
+<div class="pt-6">
+<button class="w-full md:w-auto bg-tertiary text-on-tertiary px-8 py-4 font-headline-md text-body-lg rounded-none hover:bg-tertiary-container transition-colors flex items-center justify-center space-x-2" type="submit">
+<span>Send</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Info Column -->
+<div class="lg:col-span-5 space-y-8 mt-12 lg:mt-0">
+<div class="code-well p-8 border border-primary-container">
+<div class="font-code-sm text-code-sm text-primary-container mb-4 opacity-70">// connection.config</div>
+<ul class="space-y-6">
+<li>
+<p class="font-code-sm text-code-sm text-outline mb-1">status:</p>
+<p class="font-body-md text-body-md text-on-surface flex items-center"><span class="w-2 h-2 bg-secondary rounded-full mr-3 inline-block"></span> Accepting new projects</p>
+</li>
+<li>
+<p class="font-code-sm text-code-sm text-outline mb-1">location:</p>
+<p class="font-body-md text-body-md text-on-surface">Remote / GMT-4</p>
+</li>
+<li>
+<p class="font-code-sm text-code-sm text-outline mb-1">direct_line:</p>
+<p class="font-body-md text-body-md text-on-surface">hello@mar7yyy.dev</p>
+</li>
+</ul>
+</div>
+<div class="border border-primary-container p-6 relative">
+<div class="absolute -top-3 right-6 bg-surface px-2 font-code-sm text-code-sm text-primary-container">[ GPG Key ]</div>
+<p class="font-code-sm text-code-sm text-on-surface-variant break-all opacity-80 mt-2">
+                        pub  rsa4096 2024-01-01 [SC] <br/>
+                        ABCD 1234 EFGH 5678 IJKL 9012 MNOP 3456 <br/>
+                        uid  mar7yyy &lt;hello@mar7yyy.dev&gt;
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-16 bg-surface px-4 pb-safe border-t border-primary z-50">
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">code</span>
+<span class="font-label-caps text-label-caps">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">article</span>
+<span class="font-label-caps text-label-caps">Snippets</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim font-bold before:content-['&gt;'] before:mr-1 transition-all duration-200 active:scale-95 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">mail</span>
+<span class="font-label-caps text-label-caps">Contact</span>
+</a>
+</nav>
+</body></html>
+
+<!-- Projects Showcase -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>mar7yyy - Portfolio Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "error-container": "#ffdad6",
+                "surface-dim": "#ded9dc",
+                "on-error": "#ffffff",
+                "on-primary-fixed": "#211633",
+                "surface-container-highest": "#e6e1e4",
+                "primary-container": "#534666",
+                "surface-tint": "#665879",
+                "on-primary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "on-surface": "#1d1b1d",
+                "on-tertiary-fixed-variant": "#743419",
+                "surface-container-low": "#f8f2f5",
+                "primary-fixed-dim": "#d1bfe6",
+                "secondary-container": "#ff9f9a",
+                "surface": "#fdf8fb",
+                "on-primary-fixed-variant": "#4e4161",
+                "inverse-on-surface": "#f5eff2",
+                "tertiary-container": "#7b391e",
+                "on-primary-container": "#c6b6db",
+                "on-tertiary-fixed": "#380d00",
+                "outline-variant": "#cbc4cd",
+                "surface-variant": "#e6e1e4",
+                "secondary": "#934845",
+                "inverse-primary": "#d1bfe6",
+                "tertiary-fixed-dim": "#ffb59a",
+                "on-background": "#1d1b1d",
+                "secondary-fixed-dim": "#ffb3af",
+                "secondary-fixed": "#ffdad7",
+                "primary-fixed": "#ecdcff",
+                "error": "#ba1a1a",
+                "inverse-surface": "#323032",
+                "on-secondary-fixed": "#3d0608",
+                "on-secondary-fixed-variant": "#76312f",
+                "on-tertiary": "#ffffff",
+                "outline": "#7a757d",
+                "on-tertiary-container": "#ffa786",
+                "tertiary-fixed": "#ffdbce",
+                "on-secondary-container": "#793331",
+                "surface-container-lowest": "#ffffff",
+                "surface-container": "#f2ecef",
+                "surface-container-high": "#ece7ea",
+                "primary": "#3c2f4e",
+                "on-error-container": "#93000a",
+                "background": "#fdf8fb",
+                "tertiary": "#5e2309",
+                "surface-bright": "#fdf8fb",
+                "on-surface-variant": "#49454d"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "max-width": "1200px",
+                "margin-desktop": "64px",
+                "unit": "8px",
+                "margin-mobile": "20px",
+                "gutter": "24px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Inter"
+                ],
+                "code-sm": [
+                        "JetBrains Mono"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-caps": [
+                        "JetBrains Mono"
+                ],
+                "display-lg": [
+                        "Playfair Display"
+                ],
+                "headline-md": [
+                        "Playfair Display"
+                ],
+                "display-lg-mobile": [
+                        "Playfair Display"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "code-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "1.0",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "64px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "40px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .syntax-divider {
+                @apply font-code-sm text-code-sm text-outline flex items-center justify-center gap-4 py-8 opacity-50;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#FFEFDA] text-on-surface font-body-lg text-body-lg min-h-screen antialiased selection:bg-secondary-container selection:text-on-secondary-container flex flex-col md:flex-row">
+<!-- Desktop SideNav / Mobile Drawer Mapping -->
+<nav class="hidden md:flex flex-col h-screen w-80 fixed inset-y-0 left-0 z-50 overflow-y-auto bg-surface dark:bg-on-background border-r border-primary dark:border-primary-fixed">
+<div class="p-gutter">
+<h1 class="font-display-lg text-display-lg text-primary mb-2">mar7yyy</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-1">Full-Stack Engineer</p>
+<p class="font-code-sm text-code-sm text-outline">v1.0.4</p>
+</div>
+<div class="px-4 py-8 flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-container text-on-primary-container font-bold border-l-4 border-secondary transition-colors cursor-pointer rounded-r-2xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-body-md text-body-md">Portfolio</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer rounded-r-2xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<span class="font-body-md text-body-md">Showcase</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer rounded-r-2xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu_book</span>
+<span class="font-body-md text-body-md">DevLog</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors cursor-pointer rounded-r-2xl" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">send</span>
+<span class="font-body-md text-body-md">Message</span>
+</a>
+</div>
+</nav>
+<!-- Mobile TopAppBar -->
+<header class="md:hidden flex justify-between items-center px-gutter py-4 w-full top-0 sticky bg-surface dark:bg-on-background border-b border-primary dark:border-primary-fixed z-40">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-primary-fixed">{ mar7yyy }</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-80 pb-32 md:pb-16 px-margin-mobile md:px-margin-desktop pt-12 max-w-max-width mx-auto w-full">
+<!-- Hero Section -->
+<section class="mb-24 md:mb-32">
+<div class="flex flex-col md:flex-row items-start gap-gutter">
+<div class="w-full md:w-1/2 flex justify-center md:justify-start">
+<img alt="mar7yyy Brand Logo" class="w-48 h-48 md:w-64 md:h-64 object-cover border border-primary p-2 bg-surface rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaHt6rH0vKgGDZsk5RLtT3lirWYpinTB1_BZ9PC0wqs6KwfGrqfgu5fD8vBwX2go2D0aejMiLW9qyjNrnQx5lcFqvYuOq47gsC4sTklGCugub28AJGK_Pzc8Ywdk_rS2Kl5lGDQiu3Uc4XXhXfQbvbR78QJb6KeZDj7_b6oycNKbu4TfTYmu86q7oq9zddW2R75_zkIXh0sRXvSFjoxbj7NdJz4iHdxIT42lBooHZ78zUHy3WySZxG"/>
+</div>
+<div class="w-full md:w-1/2 pt-8">
+<h2 class="font-code-sm text-code-sm text-primary mb-4">[ system.init() ]</h2>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6">Building elegant solutions through <span class="text-secondary">structured logic</span>.</h1>
+<div class="flex gap-4">
+<button class="bg-[#DC8665] text-primary px-6 py-3 font-code-sm text-code-sm uppercase tracking-wider hover:opacity-90 transition-opacity flex items-center gap-2 rounded-full">
+<span>View Work</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Syntax Divider -->
+<div class="syntax-divider">
+<span>[</span>
+<span class="tracking-[0.5em]">- - - - -</span>
+<span>]</span>
+</div>
+<!-- About Me Section -->
+<section class="my-24 md:my-32">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4 border-t border-primary pt-4">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">About Context</h3>
+<p class="font-code-sm text-code-sm text-outline">const role = "Engineer";</p>
+</div>
+<div class="md:col-span-8 md:border-l md:border-primary md:pl-8">
+<p class="font-body-lg text-body-lg text-on-surface mb-6">
+                        Bridging the gap between the intellectual world of publishing and the structured world of software engineering. My approach to design and development relies on a fusion of editorial elegance and technical precision.
+                    </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        I specialize in creating robust, scalable systems that do not compromise on user experience or aesthetic quality. Every line of code is treated with the same reverence as classical architectural motifs.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Syntax Divider -->
+<div class="syntax-divider">
+<span>&lt;</span>
+<span class="tracking-[0.5em]">/ / / / /</span>
+<span>&gt;</span>
+</div>
+<!-- Featured Snippet Section -->
+<section class="my-24 md:my-32">
+<div class="border border-primary bg-surface p-6 md:p-8 relative rounded-2xl">
+<div class="absolute -top-3 left-6 bg-surface px-2 font-code-sm text-code-sm text-primary">
+                    { Featured_Snippet }
+                </div>
+<div class="bg-primary-container p-6 overflow-x-auto border border-primary mt-4 rounded-2xl">
+<pre class="font-code-sm text-code-sm text-on-primary-container leading-relaxed"><span class="text-[#EEB462]">function</span> <span class="text-secondary-fixed">optimizeExperience</span>(userContext) {
+  <span class="text-outline">// Ensure absolute clarity</span>
+  <span class="text-[#EEB462]">if</span> (!userContext.isClear) {
+    <span class="text-[#EEB462]">return</span> <span class="text-secondary-fixed">applyMinimalism</span>(userContext);
+  }
+  
+  <span class="text-[#EEB462]">const</span> ui = <span class="text-[#EEB462]">new</span> <span class="text-secondary-fixed">Interface</span>({
+    style: <span class="text-tertiary-fixed-dim">'brutalist-chic'</span>,
+    elevation: <span class="text-tertiary-fixed-dim">'tonal-layers'</span>,
+    typography: <span class="text-tertiary-fixed-dim">'editorial-mono'</span>
+  });
+
+  <span class="text-[#EEB462]">return</span> ui.<span class="text-secondary-fixed">render</span>();
+}
+                    </pre>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-16 bg-surface dark:bg-on-background px-4 pb-safe border-t border-primary dark:border-primary-fixed z-50">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim font-bold before:content-['&gt;'] before:mr-1 transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">code</span>
+<span class="font-label-caps text-label-caps">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">article</span>
+<span class="font-label-caps text-label-caps">Snippets</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 active:scale-95" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">mail</span>
+<span class="font-label-caps text-label-caps">Contact</span>
+</a>
+</nav>
+</body></html>
+
+<!-- Contact & Inquiries -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>mar7yyy - Projects</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;600&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "error-container": "#ffdad6",
+                "surface-dim": "#ded9dc",
+                "on-error": "#ffffff",
+                "on-primary-fixed": "#211633",
+                "surface-container-highest": "#e6e1e4",
+                "primary-container": "#534666",
+                "surface-tint": "#665879",
+                "on-primary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "on-surface": "#1d1b1d",
+                "on-tertiary-fixed-variant": "#743419",
+                "surface-container-low": "#f8f2f5",
+                "primary-fixed-dim": "#d1bfe6",
+                "secondary-container": "#ff9f9a",
+                "surface": "#fdf8fb",
+                "on-primary-fixed-variant": "#4e4161",
+                "inverse-on-surface": "#f5eff2",
+                "tertiary-container": "#7b391e",
+                "on-primary-container": "#c6b6db",
+                "on-tertiary-fixed": "#380d00",
+                "outline-variant": "#cbc4cd",
+                "surface-variant": "#e6e1e4",
+                "secondary": "#934845",
+                "inverse-primary": "#d1bfe6",
+                "tertiary-fixed-dim": "#ffb59a",
+                "on-background": "#1d1b1d",
+                "secondary-fixed-dim": "#ffb3af",
+                "secondary-fixed": "#ffdad7",
+                "primary-fixed": "#ecdcff",
+                "error": "#ba1a1a",
+                "inverse-surface": "#323032",
+                "on-secondary-fixed": "#3d0608",
+                "on-secondary-fixed-variant": "#76312f",
+                "on-tertiary": "#ffffff",
+                "outline": "#7a757d",
+                "on-tertiary-container": "#ffa786",
+                "tertiary-fixed": "#ffdbce",
+                "on-secondary-container": "#793331",
+                "surface-container-lowest": "#ffffff",
+                "surface-container": "#f2ecef",
+                "surface-container-high": "#ece7ea",
+                "primary": "#3c2f4e",
+                "on-error-container": "#93000a",
+                "background": "#fdf8fb",
+                "tertiary": "#5e2309",
+                "surface-bright": "#fdf8fb",
+                "on-surface-variant": "#49454d"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "max-width": "1200px",
+                "margin-desktop": "64px",
+                "unit": "8px",
+                "margin-mobile": "20px",
+                "gutter": "24px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Inter"
+                ],
+                "code-sm": [
+                        "JetBrains Mono"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-caps": [
+                        "JetBrains Mono"
+                ],
+                "display-lg": [
+                        "Playfair Display"
+                ],
+                "headline-md": [
+                        "Playfair Display"
+                ],
+                "display-lg-mobile": [
+                        "Playfair Display"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "code-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "1.0",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "64px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "40px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #fdf8fb;
+            color: #1d1b1d;
+        }
+        
+        /* Fixed Grid Overlay for development/reference - hidden by default */
+        .grid-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .grid-overlay .container { height: 100%; }
+        .grid-column { background: rgba(220, 134, 101, 0.1); }
+        
+        .syntax-divider {
+            color: #cbc4cd;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .syntax-divider::before, .syntax-divider::after {
+            content: "// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //";
+            display: inline-block;
+            opacity: 0.5;
+        }
+        
+        .code-layer {
+            background-color: rgba(83, 70, 102, 0.05);
+            border: 1px solid #7a757d;
+        }
+        
+        .ghost-card {
+            transition: all 0.2s ease;
+        }
+        .ghost-card:hover {
+            outline: 1px solid #534666;
+            transform: translateY(-2px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-body-md antialiased min-h-screen flex flex-col selection:bg-secondary selection:text-on-secondary">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-on-background border-b border-outline-variant z-40 transition-transform duration-300 rounded-b-3xl" id="top-app-bar">
+<div class="flex justify-between items-center px-gutter py-4 w-full max-w-[1200px] mx-auto">
+<div class="flex items-center gap-4 cursor-pointer active:opacity-80">
+<span class="material-symbols-outlined text-primary font-headline-md text-headline-md-mobile" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary font-bold tracking-tight">{ mar7yyy }</h1>
+</div>
+<!-- Desktop Nav (Hidden on Mobile) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-label-caps text-label-caps text-outline hover:text-secondary transition-colors" href="#">Home</a>
+<a class="font-label-caps text-label-caps text-secondary font-bold hover:text-secondary transition-colors flex items-center" href="#"><span class="text-tertiary mr-2">&gt;</span>Projects</a>
+<a class="font-label-caps text-label-caps text-outline hover:text-secondary transition-colors" href="#">Snippets</a>
+<a class="font-label-caps text-label-caps text-outline hover:text-secondary transition-colors" href="#">Contact</a>
+</nav>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-24">
+<!-- Header Section -->
+<section class="mb-16">
+<p class="font-code-sm text-code-sm text-tertiary mb-4 uppercase tracking-widest"><span class="text-outline mr-2">const</span> ACTIVE_PROJECTS</p>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-6">Works in Progress <span class="text-outline font-code-sm text-code-sm opacity-50 align-top ml-2">[4]</span></h2>
+<div class="w-full h-[1px] bg-outline-variant mb-8"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                A selection of recent technical explorations bridging the gap between rigorous systems programming and high-fidelity user interfaces.
+            </p>
+</section>
+<!-- Syntax Divider -->
+<div class="font-code-sm text-code-sm syntax-divider my-12 text-outline-variant"></div>
+<!-- Project List -->
+<div class="grid grid-cols-1 gap-8 md:gap-12">
+<!-- Project Card 1 -->
+<article class="ghost-card border border-outline-variant rounded-3xl p-6 md:p-8 bg-surface-bright flex flex-col md:flex-row gap-8 shadow-sm">
+<div class="md:w-1/3 flex-shrink-0">
+<div class="w-full h-48 md:h-full bg-cover bg-center border border-outline-variant rounded-3xl filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="A sophisticated data visualization dashboard showing abstract real-time metrics. The interface is clean, modernist, and brutalist, featuring stark lines, off-white backgrounds (#FFEFDA), and precise typography. Accents of terracotta and deep slate provide structural hierarchy. The mood is analytical and precise." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAx5yWoZ1_0FwKojlkSM_4r9mxLkShJsyu8JZrWgdEwJrZbzGZcTTrezn0GFpEKqBl-3wnA3ue50GZjjU0Cu-PnM1v14BmV733gbH2fV_s85rWHluG_Yd6PkLEDNVqa7tpeSpDuDCElAREAqKW-JvaG176pIU_QHSOx5uy1AeVixfOcaMOrD6UinD7fYf3bEOcwsMkvn_jij2ZVJ16VhOj52ktml7tgWkweYKdbczMDpbxJ3UQsajLm')"></div>
+</div>
+<div class="flex flex-col justify-between md:w-2/3">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-on-background"><span class="text-primary mr-2 font-code-sm text-code-sm">{</span>Nexus Engine<span class="text-primary ml-2 font-code-sm text-code-sm">}</span></h3>
+<span class="font-code-sm text-code-sm text-tertiary border border-tertiary rounded-full px-3 py-1 uppercase text-[10px]">Open Source</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            A high-performance real-time synchronization engine designed for edge-computing applications. Implements a custom CRDT (Conflict-free Replicated Data Type) resolving mechanism optimized for low-bandwidth environments.
+                        </p>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/50">
+<div class="flex items-center gap-2 font-code-sm text-code-sm text-outline">
+<span class="text-on-background">stack</span> <span class="text-tertiary">=</span> <span>[</span>
+<span class="text-on-surface-variant hover:text-secondary cursor-default transition-colors">Rust</span>, 
+                            <span class="text-on-surface-variant hover:text-secondary cursor-default transition-colors">WebAssembly</span>, 
+                            <span class="text-on-surface-variant hover:text-secondary cursor-default transition-colors">React</span>
+<span>]</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 2 -->
+<article class="ghost-card border border-outline-variant rounded-3xl p-6 md:p-8 bg-surface-bright flex flex-col md:flex-row gap-8 shadow-sm">
+<div class="md:w-1/3 flex-shrink-0">
+<div class="w-full h-48 md:h-full bg-cover bg-center border border-outline-variant rounded-3xl filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="A minimalist architectural wireframe of a mobile application interface. The design focuses on structural layout rather than visual polish, utilizing strict grids, stark lines, and a muted off-white palette with sharp terracotta highlights to indicate interactive zones. The atmosphere is functional and raw." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBFBiPj0ZYq0HTV-YOIT0nw2bQch2ikWjNk4hte03QXVkPgAkzEewAmy8JcUGMT0HHbIQDZkOD5W2z9a_kpat0EiDAWO3eFmSKNpZcrg5r5XaJ4ZuzVpLazzYIxagyEJcU3oED7uoEma_8xGIEwXAq36rLfHQw2B8dOTXkNlVb2c0XI7gLJ2M1Xcg_5MROiJ-c5pSu80DiyEfyn6rsoaC0qEUgilxMdE3JT2haDGK9puIzur4IhV_To')"></div>
+</div>
+<div class="flex flex-col justify-between md:w-2/3">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-on-background"><span class="text-primary mr-2 font-code-sm text-code-sm">{</span>Vela UI<span class="text-primary ml-2 font-code-sm text-code-sm">}</span></h3>
+<span class="font-code-sm text-code-sm text-secondary border border-secondary rounded-full px-3 py-1 uppercase text-[10px]">Client</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            A highly opinionated, headless design system built for complex enterprise dashboards. Focuses on accessibility, keyboard navigation, and structural density without sacrificing editorial elegance.
+                        </p>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/50">
+<div class="flex items-center gap-2 font-code-sm text-code-sm text-outline flex-wrap">
+<span class="text-on-background">stack</span> <span class="text-tertiary">=</span> <span>[</span>
+<span class="text-on-surface-variant hover:text-secondary cursor-default transition-colors">TypeScript</span>, 
+                            <span class="text-on-surface-variant hover:text-secondary cursor-default transition-colors">Tailwind CSS</span>, 
+                            <span class="text-on-surface-variant hover:text-secondary cursor-default transition-colors">Radix Primitives</span>
+<span>]</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Project Card 3 -->
+<article class="ghost-card border border-outline-variant rounded-3xl p-6 md:p-8 bg-surface-bright flex flex-col md:flex-row gap-8 shadow-sm">
+<div class="md:w-1/3 flex-shrink-0">
+<div class="w-full h-48 md:h-full bg-cover bg-center border border-outline-variant rounded-3xl filter grayscale hover:grayscale-0 transition-all duration-500" data-alt="Abstract rendering of geometric shapes (cubes and spheres) interacting with complex procedural textures. The lighting is harsh and theatrical, casting sharp shadows against a soft, creamy off-white background. The scene suggests computational generation and mathematical precision, rendered in deep purples and warm golds." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAn_zC2Vew_sZxbR5RpntAni6dmOX1nPEN62ee1I4MsXVwTZLqOwIUJlMeJedGbqOkiI-5rr-VXxR0324R6hy557Kk1MuKGpHXp97fervcIZpq4EbPxVfxMQVY8JxDRy__DDFZXbpA7wBauNkwR0zv-SlvTcN4_Rkg-SdbkPzwc52ZnVppRPwhE_gV2G-8VTD2OekgtFC-Jum_t9bPKezkT2O0KHvzXa4eA4m1WXXZ5rav-FNFW5lH7')"></div>
+</div>
+<div class="flex flex-col justify-between md:w-2/3">
+<div>
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-on-background"><span class="text-primary mr-2 font-code-sm text-code-sm">{</span>Shader Lab<span class="text-primary ml-2 font-code-sm text-code-sm">}</span></h3>
+<span class="font-code-sm text-code-sm text-tertiary border border-tertiary rounded-full px-3 py-1 uppercase text-[10px]">Experiment</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                            A playground for WebGL fragment shaders and procedural generation. Explores techniques for simulating natural phenomena (fluid dynamics, cellular automata) within rigid, structured environments.
+                        </p>
+</div>
+<div class="mt-auto pt-6 border-t border-outline-variant/50">
+<div class="flex items-center gap-2 font-code-sm text-code-sm text-outline flex-wrap">
+<span class="text-on-background">stack</span> <span class="text-tertiary">=</span> <span>[</span>
+<span class="text-on-surface-variant hover:text-secondary cursor-default transition-colors">GLSL</span>, 
+                            <span class="text-on-surface-variant hover:text-secondary cursor-default transition-colors">Three.js</span>, 
+                            <span class="text-on-surface-variant hover:text-secondary cursor-default transition-colors">Svelte</span>
+<span>]</span>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Pagination/Load More (Code Styled) -->
+<div class="mt-16 flex justify-center">
+<button class="code-layer px-8 py-4 flex items-center gap-2 rounded-full text-on-surface-variant hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm">
+<span class="font-code-sm text-code-sm">await</span>
+<span class="font-label-caps text-label-caps uppercase">fetch_older_projects()</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-16 bg-surface dark:bg-on-background px-4 pb-safe border-t border-outline-variant z-50 transition-transform duration-300 rounded-t-3xl" id="bottom-nav-bar">
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 hover:bg-surface-container-low p-2 w-16 rounded-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-caps text-label-caps text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary font-bold before:content-['&gt;'] before:mr-1 transition-all duration-200 active:scale-95 hover:bg-surface-container-low p-2 w-16 relative rounded-full" href="#">
+<!-- Active Indicator logic handled by JSON styles, 'Projects' is active -->
+<span class="material-symbols-outlined mb-1 text-secondary" style="font-variation-settings: 'FILL' 1;">code</span>
+<span class="font-label-caps text-label-caps text-[10px] text-secondary">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 hover:bg-surface-container-low p-2 w-16 rounded-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">article</span>
+<span class="font-label-caps text-label-caps text-[10px]">Snippets</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 hover:bg-surface-container-low p-2 w-16 rounded-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">mail</span>
+<span class="font-label-caps text-label-caps text-[10px]">Contact</span>
+</a>
+</nav>
+<script>
+        // Simple scroll interaction to hide/show navigation bars
+        let lastScrollY = window.scrollY;
+        const topBar = document.getElementById('top-app-bar');
+        const bottomBar = document.getElementById('bottom-nav-bar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                // Scrolling down
+                topBar.style.transform = 'translateY(-100%)';
+                if(bottomBar) bottomBar.style.transform = 'translateY(100%)';
+            } else {
+                // Scrolling up
+                topBar.style.transform = 'translateY(0)';
+                if(bottomBar) bottomBar.style.transform = 'translateY(0)';
+            }
+            lastScrollY = window.scrollY;
+        });
+    </script>
+</body></html>
+
+<!-- Design System -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact | mar7yyy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@400;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ece7ea",
+                        "tertiary-fixed": "#ffdbce",
+                        "secondary-fixed": "#ffdad7",
+                        "inverse-surface": "#323032",
+                        "outline": "#7a757d",
+                        "on-surface-variant": "#49454d",
+                        "surface": "#fdf8fb",
+                        "on-background": "#1d1b1d",
+                        "on-tertiary-fixed-variant": "#743419",
+                        "surface-dim": "#ded9dc",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#665879",
+                        "on-secondary-fixed-variant": "#76312f",
+                        "on-secondary-container": "#793331",
+                        "primary-fixed": "#ecdcff",
+                        "surface-variant": "#e6e1e4",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#d1bfe6",
+                        "on-tertiary-container": "#ffa786",
+                        "tertiary-fixed-dim": "#ffb59a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#c6b6db",
+                        "background": "#fdf8fb",
+                        "tertiary-container": "#7b391e",
+                        "tertiary": "#5e2309",
+                        "outline-variant": "#cbc4cd",
+                        "on-surface": "#1d1b1d",
+                        "on-secondary-fixed": "#3d0608",
+                        "secondary": "#934845",
+                        "on-tertiary-fixed": "#380d00",
+                        "primary": "#3c2f4e",
+                        "surface-container-highest": "#e6e1e4",
+                        "secondary-container": "#ff9f9a",
+                        "surface-container": "#f2ecef",
+                        "primary-fixed-dim": "#d1bfe6",
+                        "surface-container-low": "#f8f2f5",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#211633",
+                        "primary-container": "#534666",
+                        "secondary-fixed-dim": "#ffb3af",
+                        "inverse-on-surface": "#f5eff2",
+                        "surface-bright": "#fdf8fb",
+                        "on-primary-fixed-variant": "#4e4161",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "max-width": "1200px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "code-sm": ["JetBrains Mono"],
+                        "label-caps": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-lg-mobile": ["40px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "code-sm": ["14px", { "lineHeight": "1.4", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.surface'); color: theme('colors.on-surface'); }
+        .code-well { background-color: theme('colors.surface-container-low'); }
+        .input-line { border: 1px solid theme('colors.primary-container'); }
+        .input-focus:focus { outline: none; border: 2px solid theme('colors.tertiary'); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row antialiased">
+<!-- NavigationDrawer (Desktop) -->
+<nav class="hidden md:flex flex-col h-screen w-80 fixed inset-y-0 left-0 z-50 overflow-y-auto bg-surface border-r border-primary-container px-6 py-12">
+<div class="mb-12">
+<h1 class="font-display-lg text-display-lg text-primary mb-2">mar7yyy</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Full-Stack Engineer</p>
+<p class="font-code-sm text-code-sm text-outline mt-2">v1.0.4</p>
+</div>
+<ul class="space-y-4 flex-grow">
+<li>
+<a class="flex items-center space-x-3 p-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+<span class="font-body-md text-body-md">Portfolio</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 p-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<span class="font-body-md text-body-md">Showcase</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 p-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu_book</span>
+<span class="font-body-md text-body-md">DevLog</span>
+</a>
+</li>
+<li>
+<a class="flex items-center space-x-3 p-3 rounded-full bg-primary-container text-on-primary-container font-bold border-l-4 border-secondary hover:bg-surface-container-high transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">send</span>
+<span class="font-body-md text-body-md">Message</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- TopAppBar (Mobile) -->
+<header class="md:hidden flex justify-between items-center px-gutter py-4 w-full top-0 sticky bg-surface text-primary border-b border-primary z-40">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">terminal</span>
+<span class="font-headline-md text-headline-md-mobile">{ mar7yyy }</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow md:ml-80 pt-6 md:pt-16 px-gutter md:px-margin-desktop pb-32 max-w-[max-width] mx-auto w-full">
+<div class="mb-12">
+<h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4 flex items-center">
+<span class="font-code-sm text-code-sm text-outline mr-4 opacity-50">&lt;/</span>
+                Contact Me
+                <span class="font-code-sm text-code-sm text-outline ml-4 opacity-50">&gt;</span>
+</h2>
+<div class="font-code-sm text-code-sm text-outline tracking-widest uppercase mb-8">[ - - - Inquiries &amp; Transmissions - - - ]</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Form Column -->
+<div class="lg:col-span-7">
+<div class="border border-primary-container p-8 md:p-12 relative bg-surface-lowest rounded-2xl">
+<!-- Decorative Syntax -->
+<div class="absolute -top-3 left-6 bg-surface px-2 font-code-sm text-code-sm text-primary-container">{ Init Connection }</div>
+<form action="#" class="space-y-10 mt-4" method="POST">
+<div class="relative group">
+<label class="block font-body-md text-body-md text-primary-container mb-2 transition-colors group-hover:text-tertiary ml-4" for="name">Name</label>
+<input class="w-full bg-surface-container-low border-0 input-line input-focus px-6 py-4 font-code-sm text-code-sm text-on-surface bg-transparent transition-colors rounded-full placeholder:text-outline" id="name" name="name" placeholder="Enter your identifier" type="text"/>
+</div>
+<div class="relative group">
+<label class="block font-body-md text-body-md text-primary-container mb-2 transition-colors group-hover:text-tertiary ml-4" for="email">Email</label>
+<input class="w-full bg-surface-container-low border-0 input-line input-focus px-6 py-4 font-code-sm text-code-sm text-on-surface bg-transparent transition-colors rounded-full placeholder:text-outline" id="email" name="email" placeholder="routing@address.com" type="email"/>
+</div>
+<div class="relative group">
+<label class="block font-body-md text-body-md text-primary-container mb-2 transition-colors group-hover:text-tertiary ml-4" for="message">Message</label>
+<textarea class="w-full bg-surface-container-low border-0 input-line input-focus px-6 py-4 font-code-sm text-code-sm text-on-surface bg-transparent transition-colors rounded-2xl resize-none placeholder:text-outline" id="message" name="message" placeholder="Payload content..." rows="5"></textarea>
+</div>
+<div class="pt-6">
+<button class="w-full md:w-auto bg-tertiary text-on-tertiary px-8 py-4 font-headline-md text-body-lg rounded-full hover:bg-tertiary-container transition-colors flex items-center justify-center space-x-2" type="submit">
+<span>Send</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Info Column -->
+<div class="lg:col-span-5 space-y-8 mt-12 lg:mt-0">
+<div class="code-well p-8 border border-primary-container rounded-2xl">
+<div class="font-code-sm text-code-sm text-primary-container mb-4 opacity-70">// connection.config</div>
+<ul class="space-y-6">
+<li>
+<p class="font-code-sm text-code-sm text-outline mb-1">status:</p>
+<p class="font-body-md text-body-md text-on-surface flex items-center"><span class="w-2 h-2 bg-secondary rounded-full mr-3 inline-block"></span> Accepting new projects</p>
+</li>
+<li>
+<p class="font-code-sm text-code-sm text-outline mb-1">location:</p>
+<p class="font-body-md text-body-md text-on-surface">Remote / GMT-4</p>
+</li>
+<li>
+<p class="font-code-sm text-code-sm text-outline mb-1">direct_line:</p>
+<p class="font-body-md text-body-md text-on-surface">hello@mar7yyy.dev</p>
+</li>
+</ul>
+</div>
+<div class="border border-primary-container p-6 relative rounded-2xl">
+<div class="absolute -top-3 right-6 bg-surface px-2 font-code-sm text-code-sm text-primary-container">[ GPG Key ]</div>
+<p class="font-code-sm text-code-sm text-on-surface-variant break-all opacity-80 mt-2">
+                        pub  rsa4096 2024-01-01 [SC] <br/>
+                        ABCD 1234 EFGH 5678 IJKL 9012 MNOP 3456 <br/>
+                        uid  mar7yyy &lt;hello@mar7yyy.dev&gt;
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-16 bg-surface px-4 pb-safe border-t border-primary z-50">
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">code</span>
+<span class="font-label-caps text-label-caps">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">article</span>
+<span class="font-label-caps text-label-caps">Snippets</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary-fixed-dim font-bold before:content-['&gt;'] before:mr-1 transition-all duration-200 active:scale-95 w-1/4" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">mail</span>
+<span class="font-label-caps text-label-caps">Contact</span>
+</a>
+</nav>
+</body></html>
+
+<!-- Portfolio Home (Rounded) -->
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brand Identity - mar7yyy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Playfair+Display:wght@600;700&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "error-container": "#ffdad6",
+                "surface-dim": "#ded9dc",
+                "on-error": "#ffffff",
+                "on-primary-fixed": "#211633",
+                "surface-container-highest": "#e6e1e4",
+                "primary-container": "#534666",
+                "surface-tint": "#665879",
+                "on-primary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "on-surface": "#1d1b1d",
+                "on-tertiary-fixed-variant": "#743419",
+                "surface-container-low": "#f8f2f5",
+                "primary-fixed-dim": "#d1bfe6",
+                "secondary-container": "#ff9f9a",
+                "surface": "#fdf8fb",
+                "on-primary-fixed-variant": "#4e4161",
+                "inverse-on-surface": "#f5eff2",
+                "tertiary-container": "#7b391e",
+                "on-primary-container": "#c6b6db",
+                "on-tertiary-fixed": "#380d00",
+                "outline-variant": "#cbc4cd",
+                "surface-variant": "#e6e1e4",
+                "secondary": "#934845",
+                "inverse-primary": "#d1bfe6",
+                "tertiary-fixed-dim": "#ffb59a",
+                "on-background": "#1d1b1d",
+                "secondary-fixed-dim": "#ffb3af",
+                "secondary-fixed": "#ffdad7",
+                "primary-fixed": "#ecdcff",
+                "error": "#ba1a1a",
+                "inverse-surface": "#323032",
+                "on-secondary-fixed": "#3d0608",
+                "on-secondary-fixed-variant": "#76312f",
+                "on-tertiary": "#ffffff",
+                "outline": "#7a757d",
+                "on-tertiary-container": "#ffa786",
+                "tertiary-fixed": "#ffdbce",
+                "on-secondary-container": "#793331",
+                "surface-container-lowest": "#ffffff",
+                "surface-container": "#f2ecef",
+                "surface-container-high": "#ece7ea",
+                "primary": "#3c2f4e",
+                "on-error-container": "#93000a",
+                "background": "#fdf8fb",
+                "tertiary": "#5e2309",
+                "surface-bright": "#fdf8fb",
+                "on-surface-variant": "#49454d",
+                "brand-bg": "#FFEFDA",
+                "brand-slate": "#534666",
+                "brand-rose": "#CD7672",
+                "brand-terra": "#DC8665",
+                "brand-gold": "#EEB462"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "max-width": "1200px",
+                "margin-desktop": "64px",
+                "unit": "8px",
+                "margin-mobile": "20px",
+                "gutter": "24px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Inter"
+                ],
+                "code-sm": [
+                        "JetBrains Mono"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-caps": [
+                        "JetBrains Mono"
+                ],
+                "display-lg": [
+                        "Playfair Display"
+                ],
+                "headline-md": [
+                        "Playfair Display"
+                ],
+                "display-lg-mobile": [
+                        "Playfair Display"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "code-sm": [
+                        "14px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "1.0",
+                                "letterSpacing": "0.1em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "64px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "40px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #fdf8fb;
+            background-image: 
+                linear-gradient(to right, rgba(83, 70, 102, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(83, 70, 102, 0.03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        
+        .syntax-bg::before {
+            content: '{ } < > [ ] //';
+            position: absolute;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20vw;
+            color: rgba(83, 70, 102, 0.02);
+            z-index: -1;
+            white-space: nowrap;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-5deg);
+            pointer-events: none;
+        }
+        
+        .code-well {
+            background-color: rgba(83, 70, 102, 0.05);
+            border-left: 4px solid #534666;
+        }
+    </style>
+</head>
+<body class="text-on-background relative min-h-screen overflow-x-hidden font-body-md text-body-md">
+<!-- Background Decoration -->
+<div class="syntax-bg fixed inset-0 w-full h-full pointer-events-none"></div>
+<!-- Navigation Area -->
+<div class="hidden md:flex flex-row">
+<!-- NavigationDrawer (Desktop Side Nav Example) -->
+<nav class="h-full w-80 border-r border-primary bg-surface fixed inset-y-0 left-0 z-50 overflow-y-auto hidden lg:block">
+<div class="p-6">
+<div class="flex items-center space-x-3 mb-8">
+<img alt="mar7yyy developer portrait" class="w-12 h-12 rounded-full border border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaHt6rH0vKgGDZsk5RLtT3lirWYpinTB1_BZ9PC0wqs6KwfGrqfgu5fD8vBwX2go2D0aejMiLW9qyjNrnQx5lcFqvYuOq47gsC4sTklGCugub28AJGK_Pzc8Ywdk_rS2Kl5lGDQiu3Uc4XXhXfQbvbR78QJb6KeZDj7_b6oycNKbu4TfTYmu86q7oq9zddW2R75_zkIXh0sRXvSFjoxbj7NdJz4iHdxIT42lBooHZ78zUHy3WySZxG"/>
+<div>
+<h2 class="font-display-lg-mobile text-display-lg-mobile text-primary leading-none text-2xl">{ mar7yyy }</h2>
+<p class="font-code-sm text-code-sm text-on-surface-variant">Full-Stack Engineer</p>
+<span class="font-code-sm text-code-sm text-outline text-[10px]">v1.0.4</span>
+</div>
+</div>
+<div class="space-y-2 font-body-md text-body-md">
+<!-- Home mapping to Showcase for active state logic -->
+<a class="bg-primary-container text-on-primary-container font-bold rounded-full flex items-center px-4 py-3 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined mr-3">person</span>
+                        Portfolio
+                    </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-full flex items-center px-4 py-3 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 0;">terminal</span>
+                        Showcase
+                    </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-full flex items-center px-4 py-3 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 0;">menu_book</span>
+                        DevLog
+                    </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-full flex items-center px-4 py-3 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined mr-3" style="font-variation-settings: 'FILL' 0;">send</span>
+                        Message
+                    </a>
+</div>
+</div>
+</nav>
+<!-- TopAppBar (Desktop / Tablet) -->
+<header class="w-full top-0 sticky border-b border-primary bg-surface flex justify-between items-center px-gutter py-4 w-full lg:ml-80 z-40 hidden md:flex">
+<div class="flex items-center">
+<span class="material-symbols-outlined mr-2 text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary">{ mar7yyy }</span>
+</div>
+<!-- Navigation Links -->
+<div class="flex space-x-6">
+<!-- No specific active match, leaving default inactive mapping -->
+<a class="text-secondary font-bold hover:text-secondary transition-colors cursor-pointer active:opacity-80" href="#">Style Guide</a>
+<a class="text-outline hover:text-secondary transition-colors cursor-pointer active:opacity-80" href="#">Components</a>
+<a class="text-outline hover:text-secondary transition-colors cursor-pointer active:opacity-80" href="#">Layouts</a>
+</div>
+</header>
+</div>
+<!-- Main Content Canvas -->
+<main class="lg:ml-80 pt-8 pb-32 px-gutter md:px-margin-desktop max-w-[max-width] mx-auto relative z-10">
+<!-- Header Section -->
+<section class="mb-16">
+<h1 class="font-display-lg text-display-lg text-primary mb-4 hidden md:block">Brand Identity</h1>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-4 md:hidden">Brand Identity</h1>
+<div class="font-code-sm text-code-sm text-outline mb-8">
+                // System.StyleGuide.Initialize()
+            </div>
+<div class="text-outline-variant select-none mb-12 hidden md:block">
+                [ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ]
+            </div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Logo Card -->
+<div class="col-span-1 md:col-span-5 bg-surface border border-primary p-6 relative group overflow-hidden rounded-3xl">
+<div class="absolute inset-0 border border-brand-rose opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 m-[1px] rounded-3xl"></div>
+<h3 class="font-code-sm text-code-sm text-primary mb-6">{ Logo }</h3>
+<div class="aspect-square flex items-center justify-center p-8 code-well mb-6 rounded-3xl">
+<img alt="mar7yyy Brand Logo" class="w-full h-auto max-w-xs object-contain shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaHt6rH0vKgGDZsk5RLtT3lirWYpinTB1_BZ9PC0wqs6KwfGrqfgu5fD8vBwX2go2D0aejMiLW9qyjNrnQx5lcFqvYuOq47gsC4sTklGCugub28AJGK_Pzc8Ywdk_rS2Kl5lGDQiu3Uc4XXhXfQbvbR78QJb6KeZDj7_b6oycNKbu4TfTYmu86q7oq9zddW2R75_zkIXh0sRXvSFjoxbj7NdJz4iHdxIT42lBooHZ78zUHy3WySZxG"/>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                    Primary mark. Minimalist structural integration of '7' and 'y'.
+                </p>
+</div>
+<!-- Color Palette Card -->
+<div class="col-span-1 md:col-span-7 bg-surface border border-primary p-6 relative group rounded-3xl">
+<div class="absolute inset-0 border border-brand-rose opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 m-[1px] rounded-3xl"></div>
+<h3 class="font-code-sm text-code-sm text-primary mb-6">{ Colors }</h3>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+<!-- Swatch 1 -->
+<div class="flex flex-col">
+<div class="h-24 w-full border border-primary mb-2 rounded-full" style="background-color: #FFEFDA;"></div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Base</span>
+<span class="font-code-sm text-code-sm text-outline text-[10px]">#FFEFDA</span>
+</div>
+<!-- Swatch 2 -->
+<div class="flex flex-col">
+<div class="h-24 w-full border border-primary mb-2 rounded-full" style="background-color: #534666;"></div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Dark Slate</span>
+<span class="font-code-sm text-code-sm text-outline text-[10px]">#534666</span>
+</div>
+<!-- Swatch 3 -->
+<div class="flex flex-col">
+<div class="h-24 w-full border border-primary mb-2 rounded-full" style="background-color: #CD7672;"></div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Muted Rose</span>
+<span class="font-code-sm text-code-sm text-outline text-[10px]">#CD7672</span>
+</div>
+<!-- Swatch 4 -->
+<div class="flex flex-col">
+<div class="h-24 w-full border border-primary mb-2 rounded-full" style="background-color: #DC8665;"></div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Terracotta</span>
+<span class="font-code-sm text-code-sm text-outline text-[10px]">#DC8665</span>
+</div>
+<!-- Swatch 5 -->
+<div class="flex flex-col">
+<div class="h-24 w-full border border-primary mb-2 rounded-full" style="background-color: #EEB462;"></div>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Warm Gold</span>
+<span class="font-code-sm text-code-sm text-outline text-[10px]">#EEB462</span>
+</div>
+</div>
+</div>
+<!-- Typography Hierarchy Card -->
+<div class="col-span-1 md:col-span-12 bg-surface border border-primary p-6 relative group mt-6 rounded-3xl">
+<div class="absolute inset-0 border border-brand-rose opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10 m-[1px] rounded-3xl"></div>
+<h3 class="font-code-sm text-code-sm text-primary mb-8">{ Typography }</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Display / Headings -->
+<div>
+<div class="font-code-sm text-code-sm text-outline mb-2">// font-family: Playfair Display;</div>
+<div class="border-l border-primary pl-4 mb-4">
+<h4 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-2 md:hidden">Aa</h4>
+<h4 class="font-display-lg text-display-lg text-primary mb-2 hidden md:block">Aa</h4>
+<p class="font-headline-md text-headline-md text-primary">Headings &amp; Display</p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Used for major anchors, titles, and conveying editorial elegance.</p>
+</div>
+<!-- Body -->
+<div>
+<div class="font-code-sm text-code-sm text-outline mb-2">// font-family: Inter;</div>
+<div class="border-l border-primary pl-4 mb-4">
+<h4 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-2 font-body-lg text-body-lg" style="font-family: 'Inter', sans-serif;">Aa</h4>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Body Content</p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Clean, legible sans-serif for long-form reading and functional UI elements.</p>
+</div>
+<!-- Code / Labels -->
+<div>
+<div class="font-code-sm text-code-sm text-outline mb-2">// font-family: JetBrains Mono;</div>
+<div class="border-l border-primary pl-4 mb-4">
+<h4 class="font-display-lg-mobile text-display-lg-mobile text-primary mb-2 font-code-sm text-code-sm text-2xl" style="font-family: 'JetBrains Mono', monospace;">Aa</h4>
+<p class="font-label-caps text-label-caps text-primary">Labels &amp; Code</p>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Reserved for technical syntax, structural labels, and monospaced data.</p>
+</div>
+</div>
+</div>
+<!-- UI Elements Demo -->
+<div class="col-span-1 md:col-span-12 mt-6">
+<div class="text-outline-variant select-none mb-6">
+<hr class="border-t border-dashed border-primary my-8"/>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Component Examples</h3>
+<div class="flex flex-wrap gap-6 items-end">
+<!-- Buttons -->
+<div class="space-y-4">
+<button class="bg-[#DC8665] text-[#534666] font-code-sm text-code-sm px-6 py-3 rounded-full hover:bg-opacity-90 transition-opacity">
+                            Primary Action
+                        </button>
+<br/>
+<button class="bg-transparent border border-[#534666] text-[#534666] font-code-sm text-code-sm px-6 py-3 rounded-full hover:bg-[#534666] hover:text-white transition-colors">
+                            Secondary Action
+                        </button>
+</div>
+<!-- Input -->
+<div class="w-full md:w-64">
+<label class="block font-code-sm text-code-sm text-primary mb-1 pl-4">email_address</label>
+<input class="w-full bg-transparent border border-primary focus:ring-0 focus:border-brand-rose px-4 py-2 font-body-md text-body-md text-on-background placeholder-outline rounded-full" placeholder="hello@mar7yyy.dev" type="text"/>
+</div>
+<!-- Chips -->
+<div class="flex gap-2">
+<span class="inline-flex items-center px-3 py-1 bg-[#CD7672] text-white font-code-sm text-code-sm rounded-full text-xs">
+                            tag="frontend"
+                        </span>
+<span class="inline-flex items-center px-3 py-1 bg-transparent border border-primary text-primary font-code-sm text-code-sm rounded-full text-xs">
+                            tag="ui/ux"
+                        </span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-16 bg-surface border-t border-primary px-4 pb-safe z-50 md:hidden">
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 hover:bg-surface-container-low w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">home</span>
+<span class="font-label-caps text-label-caps text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary font-bold before:content-['&gt;'] before:mr-1 transition-all duration-200 active:scale-95 hover:bg-surface-container-low w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">code</span>
+<span class="font-label-caps text-label-caps text-[10px]">Projects</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 hover:bg-surface-container-low w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">article</span>
+<span class="font-label-caps text-label-caps text-[10px]">Snippets</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline transition-all duration-200 active:scale-95 hover:bg-surface-container-low w-full h-full" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">mail</span>
+<span class="font-label-caps text-label-caps text-[10px]">Contact</span>
+</a>
+</nav>
+</body></html>
