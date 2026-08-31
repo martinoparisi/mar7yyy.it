@@ -36,10 +36,18 @@ export default function Chi() {
               <Shot
                 src="/img/ritratto.webp"
                 alt={`Ritratto di ${persona.nome}`}
-                nota="Una tua foto verticale, luce fredda o comunque scura"
+                nota="Una tua foto verticale, luce naturale, sfondo pulito"
                 ratio="4 / 5"
               />
-              <div className="glass absolute inset-x-3 bottom-3 rounded-2xl px-4 py-3">
+              {/* Piu' opaco del vetro standard: qui sotto c'e' una foto, e
+                  su fondo chiaro il testo scuro sul vetro sottile sparisce. */}
+              <div
+                className="glass absolute inset-x-3 bottom-3 rounded-2xl px-4 py-3"
+                style={{
+                  background:
+                    "color-mix(in oklab, var(--color-surface) 90%, transparent)",
+                }}
+              >
                 <p className="font-mono text-xs text-ink-dim">
                   @{persona.handle}
                 </p>

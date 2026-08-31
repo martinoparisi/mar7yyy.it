@@ -42,7 +42,7 @@ export function Shot({
           className="absolute inset-0 grid place-content-center gap-2 p-6 text-center"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(135deg,#ffffff08 0 1px,transparent 1px 11px)",
+              "repeating-linear-gradient(135deg,#53466614 0 1px,transparent 1px 11px)",
           }}
           aria-label={alt}
         >
@@ -68,7 +68,7 @@ export function Telefono({
   return (
     <div className={`scene-3d ${className}`} style={style}>
       <div
-        className="relative rounded-[2.4rem] border border-line-strong bg-[#0c0c16] p-[0.55rem] shadow-[0_50px_120px_-30px_#000,0_0_80px_-40px_var(--color-viola)]"
+        className="relative rounded-[2.4rem] border border-line-strong bg-[#2b2338] p-[0.55rem] shadow-[0_50px_120px_-30px_#53466666,0_0_80px_-40px_var(--color-viola)]"
         style={{
           transform:
             "rotateY(var(--phone-y,-16deg)) rotateX(var(--phone-x,6deg)) translateZ(0)",
@@ -107,14 +107,14 @@ export function Finestra({
 }) {
   return (
     <div
-      className={`overflow-hidden rounded-xl border border-line-strong bg-[#0c0c16] shadow-[0_40px_120px_-40px_#000] ${className}`}
+      className={`overflow-hidden rounded-xl border border-line-strong bg-surface shadow-[0_40px_120px_-40px_#53466680] ${className}`}
       style={style}
     >
       <div className="flex items-center gap-1.5 border-b border-line px-3 py-2.5">
         <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
         <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-        <span className="ml-3 flex-1 truncate rounded-md bg-white/[0.04] px-2 py-1 text-center font-mono text-[0.6rem] text-ink-faint">
+        <span className="ml-3 flex-1 truncate rounded-md bg-black/[0.04] px-2 py-1 text-center font-mono text-[0.6rem] text-ink-faint">
           {url}
         </span>
       </div>
@@ -139,7 +139,7 @@ export function Card({
     <div className="scene-3d h-full">
       <div
         ref={ref}
-        className={`glass edge-glow group relative h-full overflow-hidden rounded-3xl transition-[transform,border-color,box-shadow] duration-500 ease-[var(--ease-out-expo)] hover:border-line-strong hover:shadow-[0_40px_90px_-40px_var(--color-viola)] hover:[&::after]:opacity-100 ${className}`}
+        className={`glass edge-glow group relative h-full overflow-hidden rounded-3xl transition-[transform,border-color,box-shadow] duration-500 ease-[var(--ease-out-expo)] hover:border-line-strong hover:shadow-[0_40px_90px_-40px_color-mix(in_oklab,var(--color-viola)_60%,transparent)] hover:[&::after]:opacity-100 ${className}`}
         style={{
           transform:
             "rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateZ(0)",
@@ -163,7 +163,7 @@ export function Card({
 
 export function Pill({ children }: { children: ReactNode }) {
   return (
-    <span className="rounded-full border border-line bg-white/[0.03] px-3 py-1 font-mono text-[0.68rem] text-ink-dim">
+    <span className="rounded-full border border-line bg-black/[0.03] px-3 py-1 font-mono text-[0.68rem] text-ink-dim">
       {children}
     </span>
   );

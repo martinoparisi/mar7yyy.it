@@ -52,9 +52,13 @@ export default function Nav() {
             onClick={() => scrollTo("#home")}
             className="group flex items-center gap-2.5"
           >
-            <span className="relative grid h-7 w-7 place-content-center overflow-hidden rounded-lg bg-gradient-to-br from-viola to-ciano">
-              <span className="font-display text-sm font-bold text-void">M</span>
-            </span>
+            <img
+              src="/img/logo.webp"
+              alt=""
+              width="32"
+              height="32"
+              className="h-8 w-8 object-contain"
+            />
             <span className="font-mono text-sm tracking-tight">
               {persona.handle}
               <span className="text-ink-faint">.it</span>
@@ -74,7 +78,7 @@ export default function Nav() {
                   }`}
                 >
                   {attiva === s.id && (
-                    <span className="absolute inset-0 rounded-full border border-line bg-white/[0.05]" />
+                    <span className="absolute inset-0 rounded-full border border-line bg-black/[0.04]" />
                   )}
                   <span className="relative">{s.label}</span>
                 </button>
@@ -84,7 +88,7 @@ export default function Nav() {
 
           <a
             href="mailto:parisimartino07@gmail.com"
-            className="rounded-full bg-ink px-5 py-2 text-sm font-medium text-void transition-transform duration-500 ease-[var(--ease-out-expo)] hover:scale-105"
+            className="rounded-full bg-viola px-5 py-2 text-sm font-medium text-void transition-transform duration-500 ease-[var(--ease-out-expo)] hover:scale-105"
           >
             Scrivimi
           </a>

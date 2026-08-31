@@ -50,7 +50,9 @@ export default function Hero() {
           <span className="block">
             <Lettere testo={nome} />
           </span>
-          <span className="block text-gradient">
+          {/* inline-block: cosi' il gradiente si stende sulla parola e non
+              sulla riga intera, altrimenti si vede solo il primo terzo. */}
+          <span className="inline-block text-gradient">
             <Lettere testo={cognome} ritardo={260} />
           </span>
         </h1>
@@ -72,7 +74,7 @@ export default function Hero() {
             <button
               type="button"
               onClick={() => scrollTo("#progetti")}
-              className="group relative overflow-hidden rounded-full bg-ink px-7 py-3.5 text-sm font-medium text-void transition-transform duration-500 ease-[var(--ease-out-expo)] hover:scale-[1.04]"
+              className="group relative overflow-hidden rounded-full bg-viola px-7 py-3.5 text-sm font-medium text-void transition-transform duration-500 ease-[var(--ease-out-expo)] hover:scale-[1.04]"
             >
               <span className="relative z-10">Guarda i progetti</span>
               <span
@@ -83,7 +85,7 @@ export default function Hero() {
             <button
               type="button"
               onClick={() => scrollTo("#contatti")}
-              className="glass rounded-full px-7 py-3.5 text-sm font-medium transition-colors duration-300 hover:border-line-strong hover:bg-white/[0.06]"
+              className="glass rounded-full px-7 py-3.5 text-sm font-medium transition-colors duration-300 hover:border-line-strong hover:bg-black/[0.04]"
             >
               Contattami
             </button>

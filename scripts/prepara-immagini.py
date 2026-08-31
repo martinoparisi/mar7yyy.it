@@ -36,10 +36,17 @@ SEMPLICI = {
     "mart-home.png": (None, 1600, "mart-home.webp"),
 }
 
-VIOLA = (139, 92, 246)
-CIANO = (34, 211, 238)
-VUOTO = (5, 5, 11)
+# Palette della brand identity (vedi /identity e src/index.css).
+SLATE = (83, 70, 102)
+TERRA = (220, 134, 101)
+CREMA = (255, 239, 218)
+INCHIOSTRO = (29, 27, 29)
+GRIGIO = (73, 69, 77)
 FONT_DIR = Path("/usr/share/fonts/truetype")
+
+# Il marchio: "7" e "y" incastrati. Sorgente unica di favicon, icona iOS,
+# logo del sito e anteprima social.
+MARCHIO = "logo.png"
 
 
 def font(nome: str, dim: int):
@@ -79,6 +86,21 @@ def ritaglia_al_rapporto(im: Image.Image, rapporto: float) -> Image.Image:
     return im.crop((0, y, w, y + nuovo_h))
 
 
+def trova(nome: str) -> Path | None:
+    """
+    Il sorgente puo' arrivare con un'altra estensione — l'iPhone esporta
+    `.jpeg`, non `.jpg`. Cerchiamo per nome, non per nome esatto: altrimenti
+    lo script stampa "manca" e tira dritto, e il sito resta con la vecchia foto.
+    """
+    esatto = SORGENTI / nome
+    if esatto.exists():
+        return esatto
+    for alt in sorted(SORGENTI.glob(f"{Path(nome).stem}.*")):
+        if alt.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp"):
+            return alt
+    return None
+
+
 def scala(im: Image.Image, larghezza: int) -> Image.Image:
     if im.width <= larghezza:
         return im
@@ -100,75 +122,96 @@ def salva(im: Image.Image, dest: Path) -> None:
           f"{dest.stat().st_size // 1024} kB")
 
 
-def gradiente(w: int, h: int) -> Image.Image:
+def fondo(w: int, h: int) -> Image.Image:
     """
-    Lo sfondo del sito: quasi nero con due aloni, viola in alto a sinistra e
-    ciano in basso a destra. Falloff morbido, altrimenti si vede il bordo
-    dell'alone come un'ellisse stampata sopra.
+    Lo sfondo del sito: crema con la griglia da 24px. La griglia e' l'unico
+    ornamento del design system, e regge anche a 1200x630.
+    """
+    im = Image.new("RGB", (w, h), CREMA)
+    d = ImageDraw.Draw(im)
+    passo = 24
+    riga = tuple(round(c * 0.96 + s * 0.04) for c, s in zip(CREMA, SLATE))
+    for x in range(0, w, passo):
+        d.line((x, 0, x, h), fill=riga)
+    for y in range(0, h, passo):
+        d.line((0, y, w, y), fill=riga)
+    return im
+
+
+def carica_marchio() -> Image.Image:
+    """
+    Ritaglia il marchio dal suo sfondo e lo restituisce in RGBA con lo sfondo
+    trasparente. L'alfa viene dalla distanza dal colore d'angolo: cosi' i bordi
+    antialiasati restano morbidi invece di sgranarsi.
     """
     import numpy as np
 
-    yy, xx = np.mgrid[0:h, 0:w].astype(np.float32)
-    xx /= w
-    yy /= h
+    a = np.asarray(Image.open(trova(MARCHIO)).convert("RGB")).astype(np.int16)
+    distanza = np.abs(a - a[4, 4]).sum(2)
+    alfa = np.clip(distanza / 60, 0, 1)
 
-    def alone(cx, cy, raggio):
-        d = np.sqrt(((xx - cx) * (w / h)) ** 2 + (yy - cy) ** 2) / raggio
-        return np.clip(1 - d, 0, 1) ** 2.2
+    ys, xs = np.where(distanza > 40)
+    riquadro = (xs.min(), ys.min(), xs.max() + 1, ys.max() + 1)
 
-    a1 = alone(0.14, 0.02, 1.55) * 0.72
-    a2 = alone(0.96, 1.06, 1.55) * 0.58
+    im = Image.fromarray(a.astype(np.uint8), "RGB")
+    im.putalpha(Image.fromarray((alfa * 255).astype(np.uint8), "L"))
+    return im.crop(riquadro)
 
-    fondo = np.zeros((h, w, 3), np.float32)
-    for i in range(3):
-        fondo[..., i] = VUOTO[i] + a1 * (VIOLA[i] - VUOTO[i]) + a2 * (CIANO[i] - VUOTO[i])
 
-    # Griglia tenue: dà un appiglio all'occhio senza rubare la scena.
-    passo = 60
-    griglia = np.zeros((h, w), np.float32)
-    griglia[::passo, :] = 1
-    griglia[:, ::passo] = 1
-    fondo += griglia[..., None] * 9
+def marchio_quadrato(lato: int, margine: float, fondo=None) -> Image.Image:
+    """Marchio centrato in un quadrato. `margine` e' la quota di vuoto per lato."""
+    m = carica_marchio()
+    utile = int(lato * (1 - 2 * margine))
+    scala_ = utile / max(m.size)
+    m = m.resize((max(1, round(m.width * scala_)), max(1, round(m.height * scala_))),
+                 Image.LANCZOS)
+    tela = Image.new("RGBA", (lato, lato), (*fondo, 255) if fondo else (0, 0, 0, 0))
+    tela.alpha_composite(m, ((lato - m.width) // 2, (lato - m.height) // 2))
+    return tela
 
-    return Image.fromarray(np.clip(fondo, 0, 255).astype(np.uint8), "RGB")
+
+def genera_icone() -> None:
+    """
+    iOS non gestisce la trasparenza nell'icona di home: quella va piena, con
+    un margine piu' largo perche' il sistema le arrotonda gli angoli da solo.
+    """
+    # Arte piatta: 64 colori bastano e il PNG passa da 137 kB a pochi kB.
+    salva(marchio_quadrato(180, 0.16, CREMA).convert("RGB").quantize(64),
+          USCITA / "apple-touch-icon.png")
+
+    for lato in (32, 192, 512):
+        salva(marchio_quadrato(lato, 0.08, CREMA).convert("RGB").quantize(64),
+              USCITA / f"favicon-{lato}.png")
+
+    # Logo in pagina: sfondo trasparente, si posa sulla crema del sito.
+    # 256 basta: il posto piu' grande dove compare e' la card di /identity.
+    salva(marchio_quadrato(256, 0.02).quantize(64).convert("RGBA"),
+          USCITA / "logo.webp")
+
+    # /favicon.ico lo chiedono ancora crawler e vecchi browser.
+    ico = USCITA.parent / "favicon.ico"
+    marchio_quadrato(64, 0.08, CREMA).convert("RGB").save(
+        ico, sizes=[(16, 16), (32, 32), (48, 48)]
+    )
+    print(f"  {ico.relative_to(RADICE)}  16/32/48  {ico.stat().st_size // 1024} kB")
 
 
 def genera_og() -> None:
+    """Anteprima social: marchio a sinistra, nome e riga di servizio a destra."""
     w, h = 1200, 630
-    im = gradiente(w, h)
+    im = fondo(w, h)
+
+    marchio = marchio_quadrato(300, 0.02)
+    im.paste(marchio, (90, (h - 300) // 2), marchio)
+
     d = ImageDraw.Draw(im)
-    d.text((80, 190), "Martino Parisi", font=font("Inter-Bold.ttf", 96), fill="#f2f2f7")
-    d.text((80, 310), "Sviluppatore full stack — Rovereto, Trentino",
-           font=font("Inter-Medium.ttf", 34), fill="#a3a3b8")
-    d.text((80, 380), "RaBar  ·  MART  ·  mar7yyy.it",
-           font=font("Inter-SemiBold.ttf", 34), fill=CIANO)
-    d.rectangle((80, 150, 340, 156), fill=VIOLA)
+    d.text((450, 214), "Martino Parisi", font=font("Inter-Bold.ttf", 82), fill=SLATE)
+    d.text((450, 318), "Sviluppatore full stack — Rovereto, Trentino",
+           font=font("Inter-Medium.ttf", 30), fill=GRIGIO)
+    d.text((450, 372), "mar7yyy.it", font=font("Inter-SemiBold.ttf", 30), fill=TERRA)
+    d.rectangle((450, 180, 610, 184), fill=TERRA)
+
     salva(im, USCITA / "og-image.png")
-
-
-def genera_icona() -> None:
-    lato = 180
-    grande = lato * 4
-    im = Image.new("RGB", (grande, grande), VUOTO)
-    px = im.load()
-    for y in range(grande):
-        for x in range(grande):
-            t = (x + y) / (2 * grande)
-            px[x, y] = (
-                int(VIOLA[0] * (1 - t) + CIANO[0] * t),
-                int(VIOLA[1] * (1 - t) + CIANO[1] * t),
-                int(VIOLA[2] * (1 - t) + CIANO[2] * t),
-            )
-    d = ImageDraw.Draw(im)
-    f = font("Inter-Black.ttf", int(grande * 0.62))
-    riq = d.textbbox((0, 0), "M", font=f)
-    d.text(
-        ((grande - riq[2] - riq[0]) / 2, (grande - riq[3] - riq[1]) / 2),
-        "M",
-        font=f,
-        fill=VUOTO,
-    )
-    salva(im.resize((lato, lato), Image.LANCZOS), USCITA / "apple-touch-icon.png")
 
 
 def verifica() -> None:
@@ -180,7 +223,8 @@ def verifica() -> None:
     import re
 
     citati = set()
-    for f in (RADICE / "src").rglob("*.ts*"):
+    sorgenti = list((RADICE / "src").rglob("*.ts*")) + list(RADICE.glob("*.html"))
+    for f in sorgenti:
         citati |= set(re.findall(r"/img/[\w.-]+", f.read_text()))
     mancanti = sorted(c for c in citati if not (RADICE / "public" / c[1:]).exists())
     print("Controllo percorsi:")
@@ -192,8 +236,8 @@ def verifica() -> None:
 def main() -> None:
     print("Mockup da scontornare:")
     for nome, (riquadro, larghezza, uscita) in RITAGLI.items():
-        src = SORGENTI / nome
-        if not src.exists():
+        src = trova(nome)
+        if src is None:
             print(f"  (manca {nome})")
             continue
         im = Image.open(src).convert("RGB").crop(riquadro)
@@ -201,8 +245,8 @@ def main() -> None:
 
     print("Immagini semplici:")
     for nome, (rapporto, larghezza, uscita) in SEMPLICI.items():
-        src = SORGENTI / nome
-        if not src.exists():
+        src = trova(nome)
+        if src is None:
             print(f"  (manca {nome})")
             continue
         im = Image.open(src).convert("RGB")
@@ -211,8 +255,8 @@ def main() -> None:
         salva(scala(im, larghezza), USCITA / uscita)
 
     print("Generate:")
+    genera_icone()
     genera_og()
-    genera_icona()
 
     verifica()
 

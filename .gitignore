@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Stato degli strumenti locali: non e' codice del sito
+.claude/proven-config.json
+.claude/.proven-config-version
+.claude/settings.local.json
+.claude-flow/
+.remember/

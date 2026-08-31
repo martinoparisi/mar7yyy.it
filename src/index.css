@@ -2,39 +2,49 @@
 
 /* ------------------------------------------------------------------
    Design tokens. Nessun colore hardcoded nei componenti: tutto da qui.
-   Palette: nero bluastro, accento viola -> ciano.
+   Palette: quella della brand identity (vedi /identity) — base crema,
+   slate, terracotta, rosa, oro.
+
+   I nomi `viola` e `ciano` restano: sono le due chiavi d'accento usate
+   ovunque, anche in `content.ts` (`accento: "viola" | "ciano"`).
+   Cambia il valore, non il nome.
 ------------------------------------------------------------------- */
 @theme {
-  --color-void: #05050b;
-  --color-abyss: #0a0a14;
-  --color-surface: #10101c;
-  --color-line: #ffffff14;
-  --color-line-strong: #ffffff2e;
+  --color-void: #ffefda;
+  --color-abyss: #f7e3c6;
+  --color-surface: #fdf8fb;
+  --color-line: #53466626;
+  --color-line-strong: #5346665c;
 
-  --color-ink: #f2f2f7;
-  --color-ink-dim: #a3a3b8;
-  --color-ink-faint: #66667e;
+  --color-ink: #1d1b1d;
+  --color-ink-dim: #49454d;
+  --color-ink-faint: #7a757d;
 
-  --color-viola: #8b5cf6;
-  --color-viola-deep: #5b21b6;
-  --color-ciano: #22d3ee;
-  --color-ciano-deep: #0e7490;
+  /* accento freddo: slate */
+  --color-viola: #534666;
+  --color-viola-deep: #3c2f4e;
+  /* accento caldo: rosa scuro per il testo, terracotta per le campiture */
+  --color-ciano: #934845;
+  --color-ciano-deep: #dc8665;
 
-  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --color-rosa: #cd7672;
+  --color-oro: #eeb462;
+
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   --grad-accent: linear-gradient(
     100deg,
     var(--color-viola) 0%,
-    #a78bfa 35%,
-    var(--color-ciano) 100%
+    var(--color-ciano) 42%,
+    var(--color-ciano-deep) 74%,
+    var(--color-oro) 100%
   );
 }
 
@@ -49,7 +59,13 @@ html {
 }
 
 body {
-  background: var(--color-void);
+  background-color: var(--color-void);
+  /* griglia millimetrata da 24px: e' lo sfondo del design system */
+  background-image:
+    linear-gradient(to right, rgb(83 70 102 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(83 70 102 / 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-attachment: fixed;
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-synthesis-weight: none;
@@ -58,8 +74,8 @@ body {
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--color-viola) 45%, transparent);
-  color: #fff;
+  background: color-mix(in oklab, var(--color-ciano-deep) 55%, transparent);
+  color: var(--color-viola-deep);
 }
 
 ::-webkit-scrollbar {
@@ -69,15 +85,15 @@ body {
   background: var(--color-void);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a3d;
+  background: color-mix(in oklab, var(--color-viola) 35%, transparent);
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3d3d57;
+  background: color-mix(in oklab, var(--color-viola) 60%, transparent);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-ciano);
+  outline: 2px solid var(--color-rosa);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -91,12 +107,12 @@ body {
   color: transparent;
 }
 
-/* Il display font a peso alto e tracking stretto: la firma tipografica. */
+/* Playfair in peso pieno: la firma tipografica del design system. */
 @utility display {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 0.92;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
 }
 
 @utility eyebrow {
@@ -110,7 +126,7 @@ body {
 
 /* Vetro: usato da nav, card e pannelli. Un solo posto, coerenza garantita. */
 @utility glass {
-  background: color-mix(in oklab, var(--color-surface) 55%, transparent);
+  background: color-mix(in oklab, var(--color-surface) 72%, transparent);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
   border: 1px solid var(--color-line);
@@ -130,7 +146,7 @@ body {
       color-mix(in oklab, var(--color-viola) 70%, transparent),
       transparent 40%,
       transparent 60%,
-      color-mix(in oklab, var(--color-ciano) 55%, transparent)
+      color-mix(in oklab, var(--color-ciano-deep) 75%, transparent)
     );
     -webkit-mask:
       linear-gradient(#000 0 0) content-box,
@@ -157,8 +173,8 @@ body {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.035;
-    mix-blend-mode: overlay;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 }

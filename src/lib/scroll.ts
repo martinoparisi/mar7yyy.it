@@ -14,7 +14,7 @@ export const scrollState = {
   pointer: { x: 0, y: 0 },
 };
 
-export const prefersReducedMotion = () =>
+const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

@@ -28,12 +28,14 @@ export default function App() {
         <Suspense fallback={null}>
           <Scene alta={alta} />
         </Suspense>
-        {/* Velo scuro: senza, il testo sopra il cromo non si legge. */}
+        {/* Velo: senza, il testo sopra il cromo non si legge. Su fondo crema
+            deve annacquare anche il centro, non solo i bordi — un oggetto
+            scuro dietro a testo scuro non lo salvano i soli bordi sfumati. */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(120% 90% at 50% 45%, transparent 0%, color-mix(in oklab, var(--color-void) 78%, transparent) 62%, var(--color-void) 100%)",
+              "radial-gradient(120% 90% at 50% 45%, color-mix(in oklab, var(--color-void) 58%, transparent) 0%, color-mix(in oklab, var(--color-void) 86%, transparent) 62%, var(--color-void) 100%)",
           }}
         />
       </div>

@@ -12,9 +12,11 @@ import { BlendFunction, KernelSize } from "postprocessing";
 import * as THREE from "three";
 import { scrollState } from "../lib/scroll";
 
-const VIOLA = new THREE.Color("#8b5cf6");
-const CIANO = new THREE.Color("#22d3ee");
-const ROSA = new THREE.Color("#c084fc");
+// Gli stessi accenti del CSS: slate, terracotta, rosa. I nomi restano
+// quelli storici, il valore e' quello della brand identity.
+const VIOLA = new THREE.Color("#534666");
+const CIANO = new THREE.Color("#dc8665");
+const ROSA = new THREE.Color("#cd7672");
 
 /**
  * PRNG con seme fisso. Serve perché la disposizione va decisa in un useMemo:
@@ -53,7 +55,7 @@ function Particelle({ conta = 2600 }: { conta?: number }) {
       posizioni[i * 3] = r * Math.sin(phi) * Math.cos(theta);
       posizioni[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta) * 0.6;
       posizioni[i * 3 + 2] = r * Math.cos(phi);
-      c.copy(r0() > 0.5 ? VIOLA : CIANO).multiplyScalar(0.4 + r0() * 0.6);
+      c.copy(r0() > 0.5 ? VIOLA : ROSA).multiplyScalar(0.55 + r0() * 0.45);
       colori.set([c.r, c.g, c.b], i * 3);
     }
     return { posizioni, colori };
@@ -79,9 +81,8 @@ function Particelle({ conta = 2600 }: { conta?: number }) {
         sizeAttenuation
         vertexColors
         transparent
-        opacity={0.85}
+        opacity={0.6}
         depthWrite={false}
-        blending={THREE.AdditiveBlending}
       />
     </points>
   );
@@ -133,9 +134,11 @@ function Nucleo({ alta }: { alta: boolean }) {
         <MeshDistortMaterial
           ref={mat as never}
           color={VIOLA}
-          envMapIntensity={1.6}
-          metalness={0.92}
-          roughness={0.12}
+          // Meno metallo che sul tema scuro: a 0.9 e' uno specchio, e uno
+          // specchio su crema diventa una macchia nera. Cosi' si vede il colore.
+          envMapIntensity={1.4}
+          metalness={0.45}
+          roughness={0.28}
           distort={0.34}
           speed={1.4}
         />
@@ -145,11 +148,10 @@ function Nucleo({ alta }: { alta: boolean }) {
       <mesh ref={guscio} scale={1.42}>
         <icosahedronGeometry args={[1, 1]} />
         <meshBasicMaterial
-          color={CIANO}
+          color={VIOLA}
           wireframe
           transparent
-          opacity={0.16}
-          blending={THREE.AdditiveBlending}
+          opacity={0.14}
           depthWrite={false}
         />
       </mesh>
@@ -196,7 +198,7 @@ function Schegge({ conta = 26 }: { conta?: number }) {
         <mesh key={i} scale={s.scala}>
           <octahedronGeometry args={[1, 0]} />
           <meshStandardMaterial
-            color="#cbd5ff"
+            color="#f3e2c8"
             metalness={1}
             roughness={0.22}
             envMapIntensity={2}
@@ -240,23 +242,43 @@ export default function Scene({ alta }: { alta: boolean }) {
     >
       <Regia />
 
-      <ambientLight intensity={0.35} />
-      <pointLight position={[5, 4, 5]} intensity={45} color={VIOLA} distance={22} />
-      <pointLight position={[-5, -3, 3]} intensity={35} color={CIANO} distance={22} />
+      <ambientLight intensity={0.6} />
+      <pointLight position={[5, 4, 5]} intensity={40} color={CIANO} distance={22} />
+      <pointLight position={[-5, -3, 3]} intensity={30} color={VIOLA} distance={22} />
 
-      {/* Ambiente costruito a mano: niente HDR scaricato da una CDN. */}
+      {/* Ambiente costruito a mano: niente HDR scaricato da una CDN.
+          Su fondo chiaro serve una cupola crema che avvolge: senza, il metallo
+          riflette il nero del vuoto e l'oggetto diventa una macchia scura. */}
       <Environment resolution={alta ? 256 : 128}>
+        {[
+          [0, 0, -9],
+          [0, 0, 9],
+          [-9, 0, 0],
+          [9, 0, 0],
+          [0, 9, 0],
+          [0, -9, 0],
+        ].map(([x, y, z]) => (
+          <Lightformer
+            key={`${x}${y}${z}`}
+            form="rect"
+            intensity={1.5}
+            color="#ffefda"
+            position={[x, y, z]}
+            scale={[20, 20, 1]}
+            rotation={[x || z ? Math.PI / 2 : 0, 0, 0]}
+          />
+        ))}
         <Lightformer
           form="rect"
           intensity={3}
-          color="#a78bfa"
+          color="#eeb462"
           position={[-4, 2, -4]}
           scale={[8, 8, 1]}
         />
         <Lightformer
           form="rect"
           intensity={2.4}
-          color="#22d3ee"
+          color="#dc8665"
           position={[4, -2, -3]}
           scale={[8, 8, 1]}
         />
@@ -276,15 +298,15 @@ export default function Scene({ alta }: { alta: boolean }) {
       {alta && (
         <EffectComposer enableNormalPass={false}>
           <Bloom
-            intensity={0.85}
-            luminanceThreshold={0.25}
-            luminanceSmoothing={0.5}
+            intensity={0.35}
+            luminanceThreshold={0.8}
+            luminanceSmoothing={0.4}
             kernelSize={KernelSize.LARGE}
             mipmapBlur
           />
           <ChromaticAberration offset={[0.0006, 0.0009]} />
-          <Noise opacity={0.035} blendFunction={BlendFunction.OVERLAY} />
-          <Vignette eskil={false} offset={0.24} darkness={0.85} />
+          <Noise opacity={0.03} blendFunction={BlendFunction.MULTIPLY} />
+          <Vignette eskil={false} offset={0.38} darkness={0.28} />
         </EffectComposer>
       )}
     </Canvas>

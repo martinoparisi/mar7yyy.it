@@ -135,7 +135,7 @@ export default function ProgettoSezione({
                   href={progetto.repo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="glass rounded-full px-6 py-3 text-sm font-medium transition-colors duration-300 hover:border-line-strong hover:bg-white/[0.06]"
+                  className="glass rounded-full px-6 py-3 text-sm font-medium transition-colors duration-300 hover:border-line-strong hover:bg-black/[0.04]"
                 >
                   {progetto.repoLabel}
                 </a>
