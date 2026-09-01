@@ -87,7 +87,7 @@ export default function Nav() {
           </ul>
 
           <a
-            href="mailto:parisimartino07@gmail.com"
+            href="mailto:martinoparisi@mar7yyy.it"
             className="rounded-full bg-viola px-5 py-2 text-sm font-medium text-void transition-transform duration-500 ease-[var(--ease-out-expo)] hover:scale-105"
           >
             Scrivimi

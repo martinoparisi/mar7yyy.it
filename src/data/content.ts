@@ -19,8 +19,8 @@ export const links = [
   {
     id: "email",
     label: "Email",
-    value: "parisimartino07@gmail.com",
-    href: "mailto:parisimartino07@gmail.com",
+    value: "martinoparisi@mar7yyy.it",
+    href: "mailto:martinoparisi@mar7yyy.it",
     nota: "Il modo più veloce per parlarmi",
   },
   {
