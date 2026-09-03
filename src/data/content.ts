@@ -33,8 +33,8 @@ export const links = [
   {
     id: "instagram",
     label: "Instagram",
-    value: "@martinoparisi_",
-    href: "https://instagram.com/martinoparisi_",
+    value: "@mar7yyy.dev",
+    href: "https://instagram.com/mar7yyy.dev",
     nota: "La parte non tecnica",
   },
   {
